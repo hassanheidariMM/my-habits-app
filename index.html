@@ -1,0 +1,431 @@
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اپ عادت‌های من</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
+  body { background: #0f172a; color: #e2e8f0; padding: 15px; padding-bottom: 30px; }
+  h1 { text-align: center; margin-bottom: 5px; font-size: 22px; color: #60a5fa; }
+  .date { text-align: center; color: #94a3b8; font-size: 13px; margin-bottom: 20px; }
+  .section { background: #1e293b; border-radius: 12px; padding: 15px; margin-bottom: 15px; }
+  .section h2 { font-size: 16px; margin-bottom: 12px; color: #60a5fa; }
+  .item { display: flex; align-items: center; padding: 10px; background: #334155; border-radius: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .item input[type="checkbox"] { width: 22px; height: 22px; margin-left: 10px; cursor: pointer; }
+  .item .text { flex: 1; font-size: 14px; min-width: 100px; }
+  .item.done .text { text-decoration: line-through; color: #64748b; }
+  .item .time-badge { background: #0f172a; color: #60a5fa; font-size: 11px; padding: 3px 8px; border-radius: 6px; margin-left: 8px; }
+  .edit-btn { background: #f59e0b; color: white; border: none; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; margin-right: 5px; }
+  .delete-btn { background: #ef4444; color: white; border: none; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; margin-right: 5px; }
+  .add-box { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .add-box input[type="text"] { flex: 1; min-width: 150px; padding: 10px; border-radius: 8px; border: none; background: #334155; color: white; font-size: 14px; }
+  .add-box input[type="time"] { padding: 10px; border-radius: 8px; border: none; background: #334155; color: white; font-size: 14px; }
+  .add-box button { background: #3b82f6; color: white; border: none; border-radius: 8px; padding: 10px 15px; cursor: pointer; font-size: 14px; }
+  .add-box button:active { background: #2563eb; }
+
+  /* پنل ویرایش */
+  .edit-panel { width: 100%; margin-top: 10px; padding: 10px; background: #0f172a; border-radius: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .edit-panel input[type="text"] { flex: 1; min-width: 120px; padding: 8px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 13px; }
+  .edit-panel input[type="time"] { padding: 8px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 13px; }
+  .edit-panel button { border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 13px; color: white; }
+  .save-btn { background: #22c55e; }
+  .cancel-btn { background: #64748b; }
+
+  .mini-stats { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #94a3b8; margin-top: 10px; padding-top: 10px; border-top: 1px solid #334155; }
+  .mini-stats .num { color: #60a5fa; font-weight: bold; font-size: 14px; }
+  .mini-bar { width: 100%; height: 6px; background: #334155; border-radius: 3px; overflow: hidden; margin-top: 6px; }
+  .mini-fill { height: 100%; transition: width 0.3s; }
+  .fill-green { background: #22c55e; }
+  .fill-blue { background: #3b82f6; }
+  .fill-orange { background: #f59e0b; }
+
+  .overall { background: linear-gradient(135deg, #1e293b, #334155); }
+  .overall .big-num { font-size: 40px; color: #22c55e; font-weight: bold; text-align: center; }
+  .overall .big-label { text-align: center; color: #94a3b8; font-size: 13px; margin-bottom: 15px; }
+  .overall-stats { display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px; }
+  .overall-stats .stat-box { flex: 1; }
+  .overall-stats .stat-num { font-size: 20px; color: #60a5fa; font-weight: bold; }
+  .overall-stats .stat-label { font-size: 11px; color: #94a3b8; }
+  .overall-bar { width: 100%; height: 12px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+  .overall-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #60a5fa); transition: width 0.5s; }
+
+  .history-summary { display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #334155; }
+  .history-summary .hs-box { flex: 1; }
+  .history-summary .hs-num { font-size: 22px; color: #22c55e; font-weight: bold; }
+  .history-summary .hs-label { font-size: 11px; color: #94a3b8; }
+
+  .day-row { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #334155; }
+  .day-row:last-child { border-bottom: none; }
+  .day-name { width: 90px; font-size: 12px; color: #cbd5e1; }
+  .day-bar-bg { flex: 1; height: 20px; background: #334155; border-radius: 4px; overflow: hidden; margin: 0 10px; position: relative; }
+  .day-bar-fill { height: 100%; transition: width 0.4s; }
+  .day-pct { width: 45px; text-align: left; font-size: 12px; color: #60a5fa; font-weight: bold; }
+
+  .empty { text-align: center; color: #64748b; font-size: 13px; padding: 10px; }
+</style>
+</head>
+<body>
+
+<h1>📋 اپ عادت‌های من</h1>
+<div class="date" id="todayDate"></div>
+
+<div class="section">
+  <h2>✅ عادت‌های روزانه</h2>
+  <div id="habitsList"></div>
+  <div class="add-box">
+    <input type="text" id="habitInput" placeholder="عادت جدید...">
+    <input type="time" id="habitTime">
+    <button onclick="addHabit()">افزودن</button>
+  </div>
+  <div class="mini-stats">
+    <span>پیشرفت عادت‌ها:</span>
+    <span><span class="num" id="habitPct">0%</span> (<span id="habitDone">0</span>/<span id="habitTotal">0</span>)</span>
+  </div>
+  <div class="mini-bar"><div class="mini-fill fill-green" id="habitBar" style="width:0%"></div></div>
+</div>
+
+<div class="section">
+  <h2>📝 کارهای امروز</h2>
+  <div id="tasksList"></div>
+  <div class="add-box">
+    <input type="text" id="taskInput" placeholder="کار جدید...">
+    <input type="time" id="taskTime">
+    <button onclick="addTask()">افزودن</button>
+  </div>
+  <div class="mini-stats">
+    <span>پیشرفت کارها:</span>
+    <span><span class="num" id="taskPct">0%</span> (<span id="taskDone">0</span>/<span id="taskTotal">0</span>)</span>
+  </div>
+  <div class="mini-bar"><div class="mini-fill fill-blue" id="taskBar" style="width:0%"></div></div>
+</div>
+
+<div class="section">
+  <h2>🚫 پرهیزهای من</h2>
+  <div id="avoidList"></div>
+  <div class="add-box">
+    <input type="text" id="avoidInput" placeholder="پرهیز جدید...">
+    <button onclick="addAvoid()">افزودن</button>
+  </div>
+  <div class="mini-stats">
+    <span>پیشرفت پرهیزها:</span>
+    <span><span class="num" id="avoidPct">0%</span> (<span id="avoidDone">0</span>/<span id="avoidTotal">0</span>)</span>
+  </div>
+  <div class="mini-bar"><div class="mini-fill fill-orange" id="avoidBar" style="width:0%"></div></div>
+</div>
+
+<div class="section overall">
+  <h2>📊 پیشرفت کل امروز</h2>
+  <div class="big-num" id="overallPct">0%</div>
+  <div class="big-label">از کارهای امروز انجام شده</div>
+  <div class="overall-stats">
+    <div class="stat-box">
+      <div class="stat-num" id="overallDone">0</div>
+      <div class="stat-label">انجام شده</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" id="overallTotal">0</div>
+      <div class="stat-label">کل</div>
+    </div>
+  </div>
+  <div class="overall-bar"><div class="overall-fill" id="overallBar" style="width:0%"></div></div>
+</div>
+
+<div class="section">
+  <h2>📅 تاریخچه ۷ روز اخیر</h2>
+  <div class="history-summary">
+    <div class="hs-box">
+      <div class="hs-num" id="avgPct">0%</div>
+      <div class="hs-label">میانگین هفته</div>
+    </div>
+    <div class="hs-box">
+      <div class="hs-num" id="bestDay">—</div>
+      <div class="hs-label">بهترین روز</div>
+    </div>
+    <div class="hs-box">
+      <div class="hs-num" id="streak">0</div>
+      <div class="hs-label">روز متوالی موفق</div>
+    </div>
+  </div>
+  <div id="historyList"></div>
+</div>
+
+<script>
+let rawData = JSON.parse(localStorage.getItem('myAppData')) || {
+  habits: [], tasks: [], avoids: [], history: {}
+};
+
+function upgradeList(list) {
+  return list.map(item => {
+    if (typeof item === 'string') return { text: item, time: '' };
+    return item;
+  });
+}
+
+let data = {
+  habits: upgradeList(rawData.habits || []),
+  tasks: upgradeList(rawData.tasks || []),
+  avoids: upgradeList(rawData.avoids || []),
+  history: rawData.history || {}
+};
+
+// ذخیره کدام آیتم در حال ویرایش است
+let editing = { habits: -1, tasks: -1, avoids: -1 };
+
+const today = new Date().toISOString().split('T')[0];
+
+document.getElementById('todayDate').textContent = new Date().toLocaleDateString('fa-IR', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+
+function save() { localStorage.setItem('myAppData', JSON.stringify(data)); }
+
+function renderList(type, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  if (data[type].length === 0) {
+    container.innerHTML = '<div class="empty">هنوز چیزی اضافه نکردی</div>';
+    return;
+  }
+
+  const hasTime = type !== 'avoids'; // پرهیزها زمان ندارن
+
+  data[type].forEach((item, i) => {
+    const done = data.history[today] && data.history[today][type] && data.history[today][type].includes(i);
+    const div = document.createElement('div');
+    div.className = 'item' + (done ? ' done' : '');
+
+    let timeBadge = '';
+    if (hasTime && item.time) {
+      timeBadge = `<span class="time-badge">🕐 ${item.time}</span>`;
+    }
+
+    let editBtn = '';
+    if (hasTime) {
+      editBtn = `<button class="edit-btn" onclick="startEdit('${type}', ${i})">✏️ ویرایش</button>`;
+    }
+
+    div.innerHTML = `
+      <input type="checkbox" ${done ? 'checked' : ''} onchange="toggleItem('${type}', ${i})">
+      <span class="text">${item.text}</span>
+      ${timeBadge}
+      ${editBtn}
+      <button class="delete-btn" onclick="deleteItem('${type}', ${i})">حذف</button>
+    `;
+
+    // اگر این آیتم در حال ویرایشه، پنل ویرایش رو نشون بده
+    if (editing[type] === i) {
+      const panel = document.createElement('div');
+      panel.className = 'edit-panel';
+      panel.innerHTML = `
+        <input type="text" id="editText_${type}_${i}" value="${item.text}">
+        ${hasTime ? `<input type="time" id="editTime_${type}_${i}" value="${item.time || ''}">` : ''}
+        <button class="save-btn" onclick="saveEdit('${type}', ${i})">ذخیره</button>
+        <button class="cancel-btn" onclick="cancelEdit('${type}')">انصراف</button>
+      `;
+      div.appendChild(panel);
+    }
+
+    container.appendChild(div);
+  });
+}
+
+function render() {
+  renderList('habits', 'habitsList');
+  renderList('tasks', 'tasksList');
+  renderList('avoids', 'avoidList');
+  updateAllStats();
+  renderHistory();
+}
+
+function calcPct(list, doneList) {
+  const total = list.length;
+  const done = doneList ? doneList.length : 0;
+  const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+  return { total, done, pct };
+}
+
+function updateAllStats() {
+  const h = calcPct(data.habits, data.history[today] ? data.history[today].habits : []);
+  document.getElementById('habitPct').textContent = h.pct + '%';
+  document.getElementById('habitDone').textContent = h.done;
+  document.getElementById('habitTotal').textContent = h.total;
+  document.getElementById('habitBar').style.width = h.pct + '%';
+
+  const t = calcPct(data.tasks, data.history[today] ? data.history[today].tasks : []);
+  document.getElementById('taskPct').textContent = t.pct + '%';
+  document.getElementById('taskDone').textContent = t.done;
+  document.getElementById('taskTotal').textContent = t.total;
+  document.getElementById('taskBar').style.width = t.pct + '%';
+
+  const a = calcPct(data.avoids, data.history[today] ? data.history[today].avoids : []);
+  document.getElementById('avoidPct').textContent = a.pct + '%';
+  document.getElementById('avoidDone').textContent = a.done;
+  document.getElementById('avoidTotal').textContent = a.total;
+  document.getElementById('avoidBar').style.width = a.pct + '%';
+
+  const totalAll = h.total + t.total + a.total;
+  const doneAll = h.done + t.done + a.done;
+  const pctAll = totalAll === 0 ? 0 : Math.round((doneAll / totalAll) * 100);
+
+  document.getElementById('overallPct').textContent = pctAll + '%';
+  document.getElementById('overallDone').textContent = doneAll;
+  document.getElementById('overallTotal').textContent = totalAll;
+  document.getElementById('overallBar').style.width = pctAll + '%';
+}
+
+function getDayPct(dateStr) {
+  const day = data.history[dateStr];
+  if (!day) return 0;
+  const totalAll = data.habits.length + data.tasks.length + data.avoids.length;
+  if (totalAll === 0) return 0;
+  const doneAll = (day.habits ? day.habits.length : 0) + (day.tasks ? day.tasks.length : 0) + (day.avoids ? day.avoids.length : 0);
+  return Math.round((doneAll / totalAll) * 100);
+}
+
+function getDateStr(daysAgo) {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().split('T')[0];
+}
+
+function renderHistory() {
+  const list = document.getElementById('historyList');
+  list.innerHTML = '';
+
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  const daysFromSaturday = (dayOfWeek + 1) % 7;
+
+  let sum = 0;
+  let count = 0;
+  let bestPct = 0;
+  let bestDayName = '—';
+  const days = [];
+
+  for (let i = 0; i < 7; i++) {
+    const diff = i - daysFromSaturday;
+    const d = new Date();
+    d.setDate(d.getDate() + diff);
+    const dateStr = d.toISOString().split('T')[0];
+    const dayName = d.toLocaleDateString('fa-IR', { weekday: 'long' });
+    const pct = diff <= 0 ? getDayPct(dateStr) : 0;
+    days.push({ dateStr, dayName, pct, isFuture: diff > 0, isToday: diff === 0 });
+
+    if (diff < 0) {
+      sum += pct;
+      count++;
+      if (pct > bestPct) { bestPct = pct; bestDayName = dayName; }
+    }
+  }
+
+  days.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'day-row';
+
+    let color;
+    if (d.isFuture) color = '#1e293b';
+    else if (d.pct >= 80) color = '#22c55e';
+    else if (d.pct >= 50) color = '#f59e0b';
+    else if (d.pct > 0) color = '#ef4444';
+    else color = '#475569';
+
+    let label = d.dayName;
+    if (d.isToday) label += ' (امروز)';
+
+    const pctDisplay = d.isFuture ? '—' : d.pct + '%';
+
+    row.innerHTML = `
+      <div class="day-name">${label}</div>
+      <div class="day-bar-bg"><div class="day-bar-fill" style="width:${d.pct}%; background:${color};"></div></div>
+      <div class="day-pct">${pctDisplay}</div>
+    `;
+    list.appendChild(row);
+  });
+
+  const avg = count === 0 ? 0 : Math.round(sum / count);
+  document.getElementById('avgPct').textContent = avg + '%';
+  document.getElementById('bestDay').textContent = bestDayName;
+
+  let streak = 0;
+  for (let i = 1; i <= 30; i++) {
+    const dateStr = getDateStr(i);
+    const pct = getDayPct(dateStr);
+    if (pct >= 50) streak++;
+    else break;
+  }
+  document.getElementById('streak').textContent = streak;
+}
+
+function ensureToday() {
+  if (!data.history[today]) data.history[today] = { habits: [], tasks: [], avoids: [] };
+  if (!data.history[today].habits) data.history[today].habits = [];
+  if (!data.history[today].tasks) data.history[today].tasks = [];
+  if (!data.history[today].avoids) data.history[today].avoids = [];
+}
+
+function toggleItem(type, i) {
+  ensureToday();
+  const arr = data.history[today][type];
+  const idx = arr.indexOf(i);
+  if (idx > -1) arr.splice(idx, 1); else arr.push(i);
+  save(); render();
+}
+
+function addItem(type, inputId, timeId) {
+  const v = document.getElementById(inputId).value.trim();
+  if (!v) return;
+  let time = '';
+  if (timeId) {
+    time = document.getElementById(timeId).value;
+  }
+  data[type].push({ text: v, time: time });
+  document.getElementById(inputId).value = '';
+  if (timeId) document.getElementById(timeId).value = '';
+  save(); render();
+}
+
+function addHabit() { addItem('habits', 'habitInput', 'habitTime'); }
+function addTask() { addItem('tasks', 'taskInput', 'taskTime'); }
+function addAvoid() { addItem('avoids', 'avoidInput', null); }
+
+function deleteItem(type, i) {
+  data[type].splice(i, 1);
+  if (data.history[today]) data.history[today][type] = [];
+  editing[type] = -1;
+  save(); render();
+}
+
+// === ویرایش ===
+function startEdit(type, i) {
+  editing[type] = i;
+  render();
+}
+
+function cancelEdit(type) {
+  editing[type] = -1;
+  render();
+}
+
+function saveEdit(type, i) {
+  const textInput = document.getElementById(`editText_${type}_${i}`);
+  const newText = textInput.value.trim();
+  if (!newText) {
+    alert('متن نمی‌تونه خالی باشه');
+    return;
+  }
+  data[type][i].text = newText;
+
+  if (type !== 'avoids') {
+    const timeInput = document.getElementById(`editTime_${type}_${i}`);
+    data[type][i].time = timeInput.value;
+  }
+
+  editing[type] = -1;
+  save(); render();
+}
+
+render();
+</script>
+
+</body>
+</html>
