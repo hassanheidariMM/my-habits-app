@@ -1,282 +1,3052 @@
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اپ عادت‌های من</title>
+<meta name="theme-color" content="#0f172a">
+<title>به نام پروردگار</title>
+<link rel="manifest" href="manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&family=Lalezar&family=Amiri&family=Sahel&family=Shabnam&family=Yekan+Bakh&family=Estedad&family=Gandom&family=Samim&family=Tanha&family=Parastoo&family=Gulzar&family=Markazi+Text&family=Noto+Naskh+Arabic&family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
-  body { background: #0f172a; color: #e2e8f0; padding: 15px; padding-bottom: 30px; }
-  h1 { text-align: center; margin-bottom: 5px; font-size: 22px; color: #60a5fa; }
-  .date { text-align: center; color: #94a3b8; font-size: 13px; margin-bottom: 20px; }
-  .section { background: #1e293b; border-radius: 12px; padding: 15px; margin-bottom: 15px; }
-  .section h2 { font-size: 16px; margin-bottom: 12px; color: #60a5fa; }
-  .item { display: flex; align-items: center; padding: 10px; background: #334155; border-radius: 8px; margin-bottom: 8px; flex-wrap: wrap; }
-  .item input[type="checkbox"] { width: 22px; height: 22px; margin-left: 10px; cursor: pointer; }
+  :root {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --bg-item: #334155;
+    --bg-dark: #0f172a;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-mute: #64748b;
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+    --green: #22c55e;
+    --orange: #f59e0b;
+    --red: #ef4444;
+    --purple: #a78bfa;
+    --pink: #ec4899;
+    --border: #334155;
+    --font: Tahoma, sans-serif;
+  }
+  body.light {
+    --bg: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-item: #e2e8f0;
+    --bg-dark: #f8fafc;
+    --text: #0f172a;
+    --text-dim: #475569;
+    --text-mute: #94a3b8;
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --border: #cbd5e1;
+  }
+  body.theme-ramadan { --primary: #fbbf24; --primary-dark: #d97706; --purple: #10b981; }
+  body.theme-muharram { --primary: #ef4444; --primary-dark: #991b1b; --purple: #1e293b; }
+  body.theme-nowruz { --primary: #22c55e; --primary-dark: #16a34a; --purple: #f472b6; }
+  body.theme-eid { --primary: #10b981; --primary-dark: #059669; --purple: #fbbf24; }
+  body.theme-qurban { --primary: #0ea5e9; --primary-dark: #0284c7; --purple: #fbbf24; }
+  body.theme-christmas { --primary: #dc2626; --primary-dark: #991b1b; --purple: #16a34a; }
+  body.theme-halloween { --primary: #f97316; --primary-dark: #ea580c; --purple: #7c3aed; }
+  body.theme-rose { --primary: #f43f5e; --primary-dark: #e11d48; }
+  body.theme-sea { --primary: #06b6d4; --primary-dark: #0891b2; --purple: #0ea5e9; }
+  body.theme-space { --primary: #8b5cf6; --primary-dark: #7c3aed; --purple: #d946ef; }
+  body.theme-fire { --primary: #ef4444; --primary-dark: #dc2626; --purple: #f59e0b; }
+  body.theme-winter { --primary: #93c5fd; --primary-dark: #60a5fa; --purple: #c4b5fd; }
+  body.theme-purple { --primary: #a78bfa; --primary-dark: #8b5cf6; }
+  body.theme-green { --primary: #22c55e; --primary-dark: #16a34a; }
+  body.theme-pink { --primary: #ec4899; --primary-dark: #db2777; }
+  body.theme-orange { --primary: #f59e0b; --primary-dark: #d97706; }
+  body.theme-teal { --primary: #14b8a6; --primary-dark: #0d9488; }
+  body.theme-red { --primary: #ef4444; --primary-dark: #dc2626; }
+  body.theme-yellow { --primary: #eab308; --primary-dark: #ca8a04; }
+  body.theme-indigo { --primary: #6366f1; --primary-dark: #4f46e5; }
+  body.theme-cyan { --primary: #06b6d4; --primary-dark: #0891b2; }
+  body.theme-lime { --primary: #84cc16; --primary-dark: #65a30d; }
+  body.theme-amber { --primary: #fbbf24; --primary-dark: #f59e0b; }
+  body.theme-emerald { --primary: #10b981; --primary-dark: #059669; }
+  body.theme-sky { --primary: #0ea5e9; --primary-dark: #0284c7; }
+  body.theme-violet { --primary: #8b5cf6; --primary-dark: #7c3aed; }
+  body.theme-fuchsia { --primary: #d946ef; --primary-dark: #c026d3; }
+  body.theme-slate { --primary: #64748b; --primary-dark: #475569; }
+  body.theme-stone { --primary: #78716c; --primary-dark: #57534e; }
+  body.theme-coral { --primary: #ff7f50; --primary-dark: #e85d3c; }
+  body.theme-mint { --primary: #4ade80; --primary-dark: #22c55e; }
+  body.theme-lavender { --primary: #c4b5fd; --primary-dark: #a78bfa; }
+  body.theme-gold { --primary: #ffd700; --primary-dark: #eab308; }
+  body.theme-bronze { --primary: #cd7f32; --primary-dark: #a05a1f; }
+  body.theme-silver { --primary: #c0c0c0; --primary-dark: #a0a0a0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); transition: background 0.3s, color 0.3s; }
+  body { background: var(--bg); color: var(--text); padding: 15px; padding-bottom: 90px; min-height: 100vh; }
+
+  .header { text-align: center; margin-bottom: 10px; position: relative; }
+  .header h1 { font-size: 22px; color: var(--primary); display: inline-block; }
+  .header .brand { font-size: 16px; color: var(--text-dim); font-weight: bold; letter-spacing: 2px; margin-right: 8px; }
+  .header .user-name { display: block; font-size: 13px; color: var(--green); margin-top: 5px; font-weight: bold; }
+  .date-btn { display: inline-block; margin-top: 8px; padding: 6px 14px; background: var(--bg-card); border-radius: 20px; font-size: 12px; color: var(--primary); cursor: pointer; border: 1px solid var(--border); }
+  .date { text-align: center; color: var(--text-dim); font-size: 13px; margin-bottom: 5px; }
+  .hijri-date { text-align: center; color: var(--text-mute); font-size: 11px; margin-bottom: 20px; }
+
+  .level-box { background: linear-gradient(135deg, var(--purple), var(--primary-dark)); border-radius: 12px; padding: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+  .level-icon { font-size: 36px; }
+  .level-info { flex: 1; }
+  .level-name { font-size: 15px; font-weight: bold; color: white; margin-bottom: 4px; }
+  .level-progress-bg { height: 8px; background: rgba(0,0,0,0.3); border-radius: 4px; overflow: hidden; }
+  .level-progress-fill { height: 100%; background: #fbbf24; transition: width 0.5s; }
+  .level-points { font-size: 11px; color: rgba(255,255,255,0.9); margin-top: 4px; }
+
+  .lock-screen { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; }
+  .lock-screen.hidden { display: none; }
+  .lock-icon { font-size: 60px; margin-bottom: 20px; }
+  .lock-title { font-size: 20px; color: var(--primary); margin-bottom: 20px; font-weight: bold; }
+  .lock-input-wrap { position: relative; width: 100%; max-width: 320px; }
+  .lock-input { width: 100%; padding: 15px 50px 15px 15px; border-radius: 10px; border: 2px solid var(--border); background: var(--bg-card); color: var(--text); font-size: 16px; text-align: center; letter-spacing: 2px; }
+  .lock-eye { position: absolute; top: 50%; right: 15px; transform: translateY(-50%); font-size: 20px; cursor: pointer; user-select: none; }
+  .lock-btn { background: var(--primary-dark); color: white; border: none; border-radius: 10px; padding: 12px 40px; font-size: 15px; cursor: pointer; font-weight: bold; margin-top: 15px; }
+  .lock-error { color: var(--red); font-size: 13px; margin-top: 10px; min-height: 20px; }
+
+  .tabs { display: flex; gap: 4px; background: var(--bg-card); border-radius: 12px; padding: 4px; margin-bottom: 15px; position: sticky; top: 10px; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.2); overflow-x: auto; }
+  .tab { flex: 1; min-width: 60px; padding: 9px 4px; text-align: center; border-radius: 8px; cursor: pointer; font-size: 11px; color: var(--text-dim); user-select: none; white-space: nowrap; }
+  .tab.active { background: var(--primary-dark); color: white; font-weight: bold; }
+  .tab-content { display: none; animation: fadeIn 0.3s; }
+  .tab-content.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pop { 0% { transform: scale(0.8); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+  @keyframes confetti { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+
+  .section { background: var(--bg-card); border-radius: 12px; padding: 15px; margin-bottom: 15px; }
+  .section h2 { font-size: 16px; margin-bottom: 12px; color: var(--primary); }
+  .item { display: flex; align-items: center; padding: 10px; background: var(--bg-item); border-radius: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .priority-check { width: 26px; height: 26px; margin-left: 10px; cursor: pointer; accent-color: var(--orange); }
   .item .text { flex: 1; font-size: 14px; min-width: 100px; }
-  .item.done .text { text-decoration: line-through; color: #64748b; }
-  .item .time-badge { background: #0f172a; color: #60a5fa; font-size: 11px; padding: 3px 8px; border-radius: 6px; margin-left: 8px; }
-  .edit-btn { background: #f59e0b; color: white; border: none; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; margin-right: 5px; }
-  .delete-btn { background: #ef4444; color: white; border: none; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; margin-right: 5px; }
+  .item.done .text { text-decoration: line-through; color: var(--text-mute); }
+  .item .time-badge { background: var(--bg-dark); color: var(--primary); font-size: 11px; padding: 3px 8px; border-radius: 6px; margin-left: 8px; }
+  .item .cat-badge { font-size: 10px; padding: 3px 8px; border-radius: 6px; margin-left: 6px; background: var(--purple); color: white; }
+  .item .priority-badge { font-size: 10px; padding: 3px 8px; border-radius: 6px; margin-left: 6px; background: var(--orange); color: white; font-weight: bold; }
+  .item .days-badge { font-size: 10px; padding: 3px 8px; border-radius: 6px; margin-left: 6px; background: var(--primary-dark); color: white; }
+  .item .goal-badge { font-size: 10px; padding: 3px 8px; border-radius: 6px; margin-left: 6px; background: var(--green); color: white; font-weight: bold; }
+  .item .goal-progress { width: 100%; height: 4px; background: var(--bg-dark); border-radius: 2px; margin-top: 6px; overflow: hidden; }
+  .item .goal-fill { height: 100%; background: var(--green); transition: width 0.4s; }
+  .edit-btn { background: var(--orange); color: white; border: none; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; margin-right: 5px; }
+  .delete-btn { background: var(--red); color: white; border: none; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; margin-right: 5px; }
+
   .add-box { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-  .add-box input[type="text"] { flex: 1; min-width: 150px; padding: 10px; border-radius: 8px; border: none; background: #334155; color: white; font-size: 14px; }
-  .add-box input[type="time"] { padding: 10px; border-radius: 8px; border: none; background: #334155; color: white; font-size: 14px; }
-  .add-box button { background: #3b82f6; color: white; border: none; border-radius: 8px; padding: 10px 15px; cursor: pointer; font-size: 14px; }
-  .add-box button:active { background: #2563eb; }
+  .add-box input[type="text"] { flex: 1; min-width: 100px; padding: 10px; border-radius: 8px; border: none; background: var(--bg-item); color: var(--text); font-size: 14px; }
+  .add-box input[type="time"] { padding: 10px; border-radius: 8px; border: none; background: var(--bg-item); color: var(--text); font-size: 14px; }
+  .add-box input[type="number"] { padding: 10px; border-radius: 8px; border: none; background: var(--bg-item); color: var(--text); font-size: 14px; max-width: 80px; }
+  .add-box select { padding: 10px; border-radius: 8px; border: none; background: var(--bg-item); color: var(--text); font-size: 14px; }
+  .add-box button { background: var(--primary-dark); color: white; border: none; border-radius: 8px; padding: 10px 15px; cursor: pointer; font-size: 14px; }
 
-  /* پنل ویرایش */
-  .edit-panel { width: 100%; margin-top: 10px; padding: 10px; background: #0f172a; border-radius: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
-  .edit-panel input[type="text"] { flex: 1; min-width: 120px; padding: 8px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 13px; }
-  .edit-panel input[type="time"] { padding: 8px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 13px; }
+  .days-picker { width: 100%; display: flex; flex-wrap: wrap; gap: 6px; padding: 10px; background: var(--bg-dark); border-radius: 8px; margin-top: 8px; }
+  .days-picker-label { width: 100%; font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
+  .day-check { display: inline-flex; align-items: center; gap: 4px; padding: 6px 10px; background: var(--bg-item); border-radius: 6px; cursor: pointer; font-size: 12px; border: 2px solid transparent; user-select: none; }
+  .day-check.checked { background: var(--primary-dark); color: white; border-color: var(--primary); }
+  .day-check.checked::before { content: '✓ '; }
+
+  .edit-panel { width: 100%; margin-top: 10px; padding: 10px; background: var(--bg-dark); border-radius: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .edit-panel input, .edit-panel select { flex: 1; min-width: 100px; padding: 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font-size: 13px; }
   .edit-panel button { border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 13px; color: white; }
-  .save-btn { background: #22c55e; }
-  .cancel-btn { background: #64748b; }
+  .save-btn { background: var(--green); }
+  .cancel-btn { background: var(--text-mute); }
 
-  .mini-stats { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #94a3b8; margin-top: 10px; padding-top: 10px; border-top: 1px solid #334155; }
-  .mini-stats .num { color: #60a5fa; font-weight: bold; font-size: 14px; }
-  .mini-bar { width: 100%; height: 6px; background: #334155; border-radius: 3px; overflow: hidden; margin-top: 6px; }
-  .mini-fill { height: 100%; transition: width 0.3s; }
-  .fill-green { background: #22c55e; }
-  .fill-blue { background: #3b82f6; }
-  .fill-orange { background: #f59e0b; }
+  .mini-stats { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-dim); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .mini-stats .num { color: var(--primary); font-weight: bold; font-size: 14px; }
+  .mini-bar { width: 100%; height: 6px; background: var(--bg-item); border-radius: 3px; overflow: hidden; margin-top: 6px; }
+  .mini-fill { height: 100%; transition: width 0.6s ease-out; }
+  .fill-green { background: var(--green); }
+  .fill-blue { background: var(--primary-dark); }
+  .fill-orange { background: var(--orange); }
 
-  .overall { background: linear-gradient(135deg, #1e293b, #334155); }
-  .overall .big-num { font-size: 40px; color: #22c55e; font-weight: bold; text-align: center; }
-  .overall .big-label { text-align: center; color: #94a3b8; font-size: 13px; margin-bottom: 15px; }
+  .overall { background: linear-gradient(135deg, var(--bg-card), var(--bg-item)); }
+  .overall .big-num { font-size: 40px; color: var(--green); font-weight: bold; text-align: center; }
+  .overall .big-label { text-align: center; color: var(--text-dim); font-size: 13px; margin-bottom: 15px; }
   .overall-stats { display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px; }
   .overall-stats .stat-box { flex: 1; }
-  .overall-stats .stat-num { font-size: 20px; color: #60a5fa; font-weight: bold; }
-  .overall-stats .stat-label { font-size: 11px; color: #94a3b8; }
-  .overall-bar { width: 100%; height: 12px; background: #0f172a; border-radius: 6px; overflow: hidden; }
-  .overall-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #60a5fa); transition: width 0.5s; }
+  .overall-stats .stat-num { font-size: 20px; color: var(--primary); font-weight: bold; }
+  .overall-stats .stat-label { font-size: 11px; color: var(--text-dim); }
+  .overall-bar { width: 100%; height: 12px; background: var(--bg-dark); border-radius: 6px; overflow: hidden; }
+  .overall-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--primary)); transition: width 0.8s ease-out; }
 
-  .history-summary { display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #334155; }
-  .history-summary .hs-box { flex: 1; }
-  .history-summary .hs-num { font-size: 22px; color: #22c55e; font-weight: bold; }
-  .history-summary .hs-label { font-size: 11px; color: #94a3b8; }
+  .motivation { background: linear-gradient(135deg, var(--purple), var(--primary-dark)); color: white; text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 15px; font-weight: bold; box-shadow: 0 4px 15px rgba(168,139,250,0.3); }
+  .motivation-text { font-size: 14px; animation: fadeIn 0.8s; }
+  .motivation-edit { width: 100%; padding: 8px; border-radius: 6px; border: none; background: rgba(255,255,255,0.2); color: white; font-size: 14px; text-align: center; font-family: inherit; }
+  .motivation-btn { background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 6px; padding: 5px 12px; cursor: pointer; font-size: 12px; margin: 8px 4px 0 4px; }
 
-  .day-row { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #334155; }
-  .day-row:last-child { border-bottom: none; }
-  .day-name { width: 90px; font-size: 12px; color: #cbd5e1; }
-  .day-bar-bg { flex: 1; height: 20px; background: #334155; border-radius: 4px; overflow: hidden; margin: 0 10px; position: relative; }
-  .day-bar-fill { height: 100%; transition: width 0.4s; }
-  .day-pct { width: 45px; text-align: left; font-size: 12px; color: #60a5fa; font-weight: bold; }
+  .bar-chart { display: flex; align-items: flex-end; justify-content: space-around; height: 140px; gap: 4px; padding: 10px 0; }
+  .bar-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+  .bar { width: 80%; max-width: 40px; border-radius: 6px 6px 0 0; transition: height 0.8s ease-out; min-height: 3px; }
+  .bar-label { font-size: 10px; color: var(--text-dim); margin-top: 6px; text-align: center; }
+  .bar-value { font-size: 10px; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
 
-  .empty { text-align: center; color: #64748b; font-size: 13px; padding: 10px; }
+  .month-chart { width: 100%; height: 120px; }
+
+  .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
+  .cal-day-name { text-align: center; font-size: 10px; color: var(--text-dim); padding: 4px 0; font-weight: bold; }
+  .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 12px; background: var(--bg-item); color: var(--text); position: relative; cursor: pointer; }
+  .cal-day.empty { background: transparent; cursor: default; }
+  .cal-day.today { border: 2px solid var(--primary); font-weight: bold; }
+  .cal-day.selected { border: 2px solid var(--orange); box-shadow: 0 0 10px var(--orange); }
+  .cal-legend { display: flex; justify-content: space-around; margin-top: 12px; font-size: 11px; color: var(--text-dim); flex-wrap: wrap; gap: 8px; }
+  .cal-legend span { display: flex; align-items: center; gap: 4px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+  .month-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .month-nav button { background: var(--bg-item); color: var(--text); border: none; border-radius: 8px; padding: 8px 12px; cursor: pointer; font-size: 13px; }
+  .month-nav .month-title { font-size: 14px; color: var(--primary); font-weight: bold; padding: 8px; background: var(--bg-item); border-radius: 8px; flex: 1; text-align: center; margin: 0 8px; }
+
+  .year-calendar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .year-month { background: var(--bg-item); border-radius: 8px; padding: 8px; }
+  .year-month-name { font-size: 11px; color: var(--primary); font-weight: bold; text-align: center; margin-bottom: 6px; }
+  .year-month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; }
+  .year-day { aspect-ratio: 1; border-radius: 2px; font-size: 7px; display: flex; align-items: center; justify-content: center; color: transparent; }
+
+  .stats-summary { display: flex; justify-content: space-around; text-align: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border); }
+  .stats-summary .ss-box { flex: 1; }
+  .stats-summary .ss-num { font-size: 22px; color: var(--green); font-weight: bold; }
+  .stats-summary .ss-label { font-size: 11px; color: var(--text-dim); }
+
+  .achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; }
+  .achievement { background: var(--bg-item); border-radius: 10px; padding: 12px 8px; text-align: center; opacity: 0.4; filter: grayscale(1); transition: all 0.3s; position: relative; }
+  .achievement.unlocked { opacity: 1; filter: grayscale(0); background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b; animation: pop 0.5s; }
+  .achievement .ach-icon { font-size: 28px; margin-bottom: 5px; }
+  .achievement .ach-title { font-size: 11px; font-weight: bold; }
+  .achievement .ach-desc { font-size: 9px; opacity: 0.8; margin-top: 3px; }
+
+  .dreams-section { background: linear-gradient(135deg, #1e1b4b, #312e81); }
+  body.light .dreams-section { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+  .dreams-section h2 { color: var(--purple); }
+  .dream-block { background: var(--bg-card); border-radius: 10px; padding: 12px; margin-bottom: 12px; border-right: 3px solid var(--purple); }
+  .dream-block h3 { font-size: 14px; color: var(--purple); margin-bottom: 10px; }
+  .dream-item { display: flex; align-items: center; padding: 8px; background: var(--bg-item); border-radius: 6px; margin-bottom: 6px; font-size: 13px; }
+  .dream-item input[type="checkbox"] { width: 18px; height: 18px; margin-left: 8px; cursor: pointer; accent-color: var(--green); }
+  .dream-item .text { flex: 1; }
+  .dream-item.done .text { text-decoration: line-through; color: var(--text-mute); }
+  .dream-item .done-date { font-size: 10px; color: var(--green); margin-left: 6px; }
+  .dream-add { display: flex; gap: 6px; margin-top: 8px; }
+  .dream-add input { flex: 1; padding: 8px; border-radius: 6px; border: none; background: var(--bg-item); color: var(--text); font-size: 13px; }
+  .dream-add button { background: var(--purple); color: white; border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 13px; }
+  .dream-empty { text-align: center; color: var(--text-mute); font-size: 12px; padding: 8px; }
+
+  .note-area { width: 100%; min-height: 120px; padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-item); color: var(--text); font-size: 14px; font-family: inherit; resize: vertical; line-height: 1.6; }
+  .note-info { font-size: 11px; color: var(--text-dim); margin-top: 8px; text-align: center; }
+
+  .search-box { display: flex; gap: 8px; margin-bottom: 12px; }
+  .search-box input { flex: 1; padding: 10px; border-radius: 8px; border: none; background: var(--bg-item); color: var(--text); font-size: 14px; }
+  .note-result { background: var(--bg-item); padding: 10px; border-radius: 8px; margin-bottom: 8px; position: relative; }
+  .note-result-date { font-size: 11px; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
+  .note-result-text { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+  .note-result-text mark { background: var(--orange); color: white; padding: 0 2px; border-radius: 2px; }
+  .pin-icon { position: absolute; top: 8px; left: 8px; font-size: 14px; cursor: pointer; }
+
+  .tags-bar { display: flex; gap: 5px; overflow-x: auto; padding: 5px 0; margin-bottom: 10px; flex-wrap: wrap; }
+  .tag-chip { padding: 4px 10px; border-radius: 15px; font-size: 11px; background: var(--bg-item); color: var(--text); cursor: pointer; white-space: nowrap; }
+  .tag-chip.active { background: var(--green); color: white; }
+  .tag-item { display: inline-block; font-size: 10px; background: var(--bg-dark); color: var(--primary); padding: 2px 8px; border-radius: 10px; margin: 2px; }
+
+  .diary-card { background: linear-gradient(135deg, #4c1d95, #6d28d9); border-radius: 10px; padding: 12px; margin-bottom: 10px; color: white; }
+  .diary-date { font-size: 11px; opacity: 0.8; margin-bottom: 6px; }
+  .diary-text { font-size: 13px; line-height: 1.6; }
+
+  .setting-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); gap: 10px; flex-wrap: wrap; }
+  .setting-row:last-child { border-bottom: none; }
+  .setting-label { font-size: 14px; flex: 1; min-width: 100px; }
+  .setting-btn { background: var(--primary-dark); color: white; border: none; border-radius: 8px; padding: 8px 15px; cursor: pointer; font-size: 13px; }
+  .setting-btn.danger { background: var(--red); }
+  .setting-btn.success { background: var(--green); }
+  .setting-btn.small { padding: 6px 12px; font-size: 12px; }
+  .setting-input { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-item); color: var(--text); font-size: 13px; flex: 1; min-width: 100px; }
+
+  .version-box { text-align: center; padding: 20px; color: var(--text-dim); font-size: 13px; }
+  .empty { text-align: center; color: var(--text-mute); font-size: 13px; padding: 10px; }
+
+  .timer-box { text-align: center; padding: 20px; }
+  .timer-display { font-size: 48px; font-weight: bold; color: var(--primary); margin: 15px 0; font-family: monospace; }
+  .timer-btns { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+  .timer-btn { padding: 12px 25px; border: none; border-radius: 10px; font-size: 14px; cursor: pointer; color: white; font-weight: bold; }
+  .timer-start { background: var(--green); }
+  .timer-pause { background: var(--orange); }
+  .timer-reset { background: var(--red); }
+  .timer-preset { background: var(--bg-item); color: var(--text); border: 2px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 3px; cursor: pointer; font-size: 13px; }
+
+  .analysis-box { background: var(--bg-item); padding: 12px; border-radius: 8px; margin-bottom: 10px; }
+  .analysis-title { font-size: 13px; font-weight: bold; color: var(--primary); margin-bottom: 6px; }
+  .analysis-text { font-size: 12px; color: var(--text); line-height: 1.7; }
+  .analysis-warn { border-right: 3px solid var(--red); }
+  .analysis-good { border-right: 3px solid var(--green); }
+  .analysis-info { border-right: 3px solid var(--primary); }
+  .analysis-tip { border-right: 3px solid var(--orange); }
+
+  .share-box { background: var(--bg-item); padding: 15px; border-radius: 10px; text-align: center; }
+  .share-btn { background: var(--primary-dark); color: white; border: none; border-radius: 8px; padding: 10px 18px; font-size: 13px; cursor: pointer; margin: 4px; }
+
+  .categories-bar { display: flex; gap: 5px; overflow-x: auto; padding: 5px 0; margin-bottom: 10px; }
+  .cat-chip { padding: 6px 12px; border-radius: 20px; font-size: 12px; background: var(--bg-item); color: var(--text); cursor: pointer; white-space: nowrap; }
+  .cat-chip.active { background: var(--purple); color: white; font-weight: bold; }
+
+  .report-canvas { max-width: 100%; border-radius: 8px; margin: 10px 0; }
+  .report-btn { background: var(--green); color: white; border: none; border-radius: 8px; padding: 10px 18px; font-size: 13px; cursor: pointer; margin: 4px; }
+
+  .reward-box { background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; padding: 15px; text-align: center; color: white; }
+  .reward-title { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+  .reward-btn { background: rgba(255,255,255,0.25); color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; cursor: pointer; font-weight: bold; margin-top: 8px; }
+  .reward-result { font-size: 18px; font-weight: bold; margin-top: 12px; padding: 12px; background: rgba(255,255,255,0.2); border-radius: 8px; }
+
+  .reward-item { background: var(--bg-item); border-radius: 8px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .reward-item input[type="checkbox"] { width: 22px; height: 22px; cursor: pointer; accent-color: var(--green); }
+  .reward-item.done { opacity: 0.6; }
+  .reward-item.done .reward-name { text-decoration: line-through; }
+  .reward-name { flex: 1; font-size: 13px; min-width: 100px; }
+  .reward-date { font-size: 11px; color: var(--primary); background: var(--bg-dark); padding: 3px 8px; border-radius: 6px; }
+
+  .challenge-box { background: linear-gradient(135deg, #0891b2, #06b6d4); border-radius: 12px; padding: 15px; color: white; }
+  .challenge-title { font-size: 14px; font-weight: bold; margin-bottom: 8px; }
+  .challenge-text { font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .challenge-btn { background: rgba(255,255,255,0.25); color: white; border: none; border-radius: 8px; padding: 8px 16px; font-size: 13px; cursor: pointer; font-weight: bold; }
+
+  .mood-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 10px; }
+  .mood-btn { background: var(--bg-item); border: 2px solid transparent; border-radius: 10px; padding: 12px; font-size: 24px; cursor: pointer; text-align: center; }
+  .mood-btn.selected { border-color: var(--primary); background: var(--primary-dark); }
+  .mood-history { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+  .mood-day { background: var(--bg-item); border-radius: 8px; padding: 6px 8px; font-size: 14px; text-align: center; min-width: 45px; }
+  .mood-day-date { font-size: 9px; color: var(--text-dim); }
+
+  .counter-box { background: var(--bg-item); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 10px; }
+  .counter-num { font-size: 32px; color: var(--primary); font-weight: bold; }
+  .counter-label { font-size: 12px; color: var(--text-dim); margin: 4px 0 8px; }
+  .counter-btn { background: var(--primary-dark); color: white; border: none; border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer; margin: 3px; font-weight: bold; }
+  .counter-btn.minus { background: var(--red); }
+  .counter-btn.small { padding: 6px 10px; font-size: 12px; }
+  .water-total { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
+  .water-total strong { color: var(--green); }
+
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 10000; }
+  .confetti { position: absolute; width: 10px; height: 10px; animation: confetti 3s linear forwards; }
+
+  .day-view-banner { background: linear-gradient(135deg, var(--orange), var(--red)); color: white; padding: 10px 15px; border-radius: 10px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: bold; }
+  .day-view-banner button { background: rgba(255,255,255,0.3); color: white; border: none; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
+
+  .backup-code-box { background: var(--bg-dark); border-radius: 8px; padding: 10px; margin: 8px 0; font-family: monospace; font-size: 11px; color: var(--primary); word-break: break-all; user-select: all; border: 1px solid var(--border); }
+
+  .notif-box { background: var(--bg-item); border-radius: 8px; padding: 12px; margin-top: 8px; }
+  .notif-desc { font-size: 11px; color: var(--text-dim); line-height: 1.6; }
+
+  .today-habits-info { font-size: 12px; color: var(--text-dim); text-align: center; margin-bottom: 10px; padding: 6px; background: var(--bg-dark); border-radius: 6px; }
+
+  @media (max-width: 400px) {
+    .year-calendar { grid-template-columns: repeat(2, 1fr); }
+    .counter-btn { padding: 6px 10px; font-size: 12px; }
+  }
 </style>
 </head>
 <body>
 
-<h1>📋 اپ عادت‌های من</h1>
+<div class="lock-screen hidden" id="lockScreen">
+  <div class="lock-icon">🔐</div>
+  <div class="lock-title">رمز عبور را وارد کن</div>
+  <div class="lock-input-wrap">
+    <input type="password" class="lock-input" id="lockInput" placeholder="رمز عبور" maxlength="100" autocomplete="off">
+    <span class="lock-eye" id="lockEye" onclick="togglePasswordVisibility()">👁️</span>
+  </div>
+  <button class="lock-btn" onclick="unlockApp()">ورود</button>
+  <div class="lock-error" id="lockError"></div>
+</div>
+
+<div class="header">
+  <h1>به نام پروردگار</h1>
+  <span class="brand">FATEH</span>
+  <span class="user-name" id="userNameDisplay"></span>
+  <div class="date-btn" onclick="openDatePicker()">📅 مشاهده یک روز خاص</div>
+</div>
 <div class="date" id="todayDate"></div>
+<div class="hijri-date" id="hijriDate"></div>
 
-<div class="section">
-  <h2>✅ عادت‌های روزانه</h2>
-  <div id="habitsList"></div>
-  <div class="add-box">
-    <input type="text" id="habitInput" placeholder="عادت جدید...">
-    <input type="time" id="habitTime">
-    <button onclick="addHabit()">افزودن</button>
-  </div>
-  <div class="mini-stats">
-    <span>پیشرفت عادت‌ها:</span>
-    <span><span class="num" id="habitPct">0%</span> (<span id="habitDone">0</span>/<span id="habitTotal">0</span>)</span>
-  </div>
-  <div class="mini-bar"><div class="mini-fill fill-green" id="habitBar" style="width:0%"></div></div>
+<div id="dayViewBanner" style="display:none;" class="day-view-banner">
+  <span id="dayViewLabel"></span>
+  <button onclick="closeDayView()">✕ بستن</button>
 </div>
 
-<div class="section">
-  <h2>📝 کارهای امروز</h2>
-  <div id="tasksList"></div>
-  <div class="add-box">
-    <input type="text" id="taskInput" placeholder="کار جدید...">
-    <input type="time" id="taskTime">
-    <button onclick="addTask()">افزودن</button>
+<div class="level-box" id="levelBox">
+  <div class="level-icon" id="levelIcon">🌱</div>
+  <div class="level-info">
+    <div class="level-name" id="levelName">مبتدی</div>
+    <div class="level-progress-bg"><div class="level-progress-fill" id="levelProgress" style="width:0%"></div></div>
+    <div class="level-points" id="levelPoints">۰ / ۱۰۰ امتیاز</div>
   </div>
-  <div class="mini-stats">
-    <span>پیشرفت کارها:</span>
-    <span><span class="num" id="taskPct">0%</span> (<span id="taskDone">0</span>/<span id="taskTotal">0</span>)</span>
-  </div>
-  <div class="mini-bar"><div class="mini-fill fill-blue" id="taskBar" style="width:0%"></div></div>
 </div>
 
-<div class="section">
-  <h2>🚫 پرهیزهای من</h2>
-  <div id="avoidList"></div>
-  <div class="add-box">
-    <input type="text" id="avoidInput" placeholder="پرهیز جدید...">
-    <button onclick="addAvoid()">افزودن</button>
-  </div>
-  <div class="mini-stats">
-    <span>پیشرفت پرهیزها:</span>
-    <span><span class="num" id="avoidPct">0%</span> (<span id="avoidDone">0</span>/<span id="avoidTotal">0</span>)</span>
-  </div>
-  <div class="mini-bar"><div class="mini-fill fill-orange" id="avoidBar" style="width:0%"></div></div>
+<div class="motivation" id="motivationBox"></div>
+
+<div class="tabs" id="tabsBar">
+  <div class="tab active" onclick="switchTab('home')">🏠 خانه</div>
+  <div class="tab" onclick="switchTab('stats')">📊 آمار</div>
+  <div class="tab" onclick="switchTab('analysis')">🎓 تحلیل</div>
+  <div class="tab" onclick="switchTab('timer')">⏱️ تایمر</div>
+  <div class="tab" onclick="switchTab('dreams')">💫 آرزوها</div>
+  <div class="tab" onclick="switchTab('rewards')">🎁 جایزه‌ها</div>
+  <div class="tab" onclick="switchTab('note')">📝 یادداشت</div>
+  <div class="tab" onclick="switchTab('diary')">📖 خاطرات</div>
+  <div class="tab" onclick="switchTab('extras')">✨ بیشتر</div>
+  <div class="tab" onclick="switchTab('report')">🖼️ گزارش</div>
+  <div class="tab" onclick="switchTab('settings')">⚙️ تنظیمات</div>
 </div>
 
-<div class="section overall">
-  <h2>📊 پیشرفت کل امروز</h2>
-  <div class="big-num" id="overallPct">0%</div>
-  <div class="big-label">از کارهای امروز انجام شده</div>
-  <div class="overall-stats">
-    <div class="stat-box">
-      <div class="stat-num" id="overallDone">0</div>
-      <div class="stat-label">انجام شده</div>
+<div class="tab-content active" id="tab-home">
+  <div class="section">
+    <h2>✅ عادت‌های امروز</h2>
+    <div class="today-habits-info" id="todayHabitsInfo">در حال بارگذاری...</div>
+    <div class="categories-bar" id="habitsCats"></div>
+    <div id="habitsList"></div>
+    <div class="add-box" id="habitsAddBox">
+      <input type="text" id="habitInput" placeholder="عادت جدید...">
+      <input type="time" id="habitTime">
+      <select id="habitCat">
+        <option value="">بدون دسته</option>
+        <option value="ورزشی">ورزشی</option>
+        <option value="تحصیلی">تحصیلی</option>
+        <option value="معنوی">معنوی</option>
+        <option value="سلامت">سلامت</option>
+        <option value="مهارت">مهارت</option>
+        <option value="خانواده">خانواده</option>
+        <option value="مالی">مالی</option>
+      </select>
+      <input type="number" id="habitPriority" placeholder="اولویت" min="1" max="10">
+      <input type="number" id="habitGoal" placeholder="هدف (روز)" min="1" max="365">
+      <div class="days-picker" id="habitDaysPicker">
+        <div class="days-picker-label">📅 روزهای انجام (اگر خالی باشه = هر روز):</div>
+        <label class="day-check" data-day="6"><input type="checkbox" value="6">شنبه</label>
+        <label class="day-check" data-day="0"><input type="checkbox" value="0">یک‌شنبه</label>
+        <label class="day-check" data-day="1"><input type="checkbox" value="1">دوشنبه</label>
+        <label class="day-check" data-day="2"><input type="checkbox" value="2">سه‌شنبه</label>
+        <label class="day-check" data-day="3"><input type="checkbox" value="3">چهارشنبه</label>
+        <label class="day-check" data-day="4"><input type="checkbox" value="4">پنج‌شنبه</label>
+        <label class="day-check" data-day="5"><input type="checkbox" value="5">جمعه</label>
+      </div>
+      <button onclick="addHabit()">افزودن</button>
     </div>
-    <div class="stat-box">
-      <div class="stat-num" id="overallTotal">0</div>
-      <div class="stat-label">کل</div>
+    <div class="mini-stats">
+      <span>پیشرفت عادت‌ها:</span>
+      <span><span class="num" id="habitPct">0%</span> (<span id="habitDone">0</span>/<span id="habitTotal">0</span>)</span>
+    </div>
+    <div class="mini-bar"><div class="mini-fill fill-green" id="habitBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="section">
+    <h2>📝 کارهای امروز</h2>
+    <div id="tasksList"></div>
+    <div class="add-box" id="tasksAddBox">
+      <input type="text" id="taskInput" placeholder="کار جدید...">
+      <input type="time" id="taskTime">
+      <input type="number" id="taskPriority" placeholder="اولویت" min="1" max="10">
+      <button onclick="addTask()">افزودن</button>
+    </div>
+    <div class="mini-stats">
+      <span>پیشرفت کارها:</span>
+      <span><span class="num" id="taskPct">0%</span> (<span id="taskDone">0</span>/<span id="taskTotal">0</span>)</span>
+    </div>
+    <div class="mini-bar"><div class="mini-fill fill-blue" id="taskBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="section">
+    <h2>🚫 پرهیزهای من</h2>
+    <div id="avoidList"></div>
+    <div class="add-box" id="avoidsAddBox">
+      <input type="text" id="avoidInput" placeholder="پرهیز جدید...">
+      <button onclick="addAvoid()">افزودن</button>
+    </div>
+    <div class="mini-stats">
+      <span>پیشرفت پرهیزها:</span>
+      <span><span class="num" id="avoidPct">0%</span> (<span id="avoidDone">0</span>/<span id="avoidTotal">0</span>)</span>
+    </div>
+    <div class="mini-bar"><div class="mini-fill fill-orange" id="avoidBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="section overall">
+    <h2>📊 پیشرفت کل امروز</h2>
+    <div class="big-num" id="overallPct">0%</div>
+    <div class="big-label">از کارهای امروز انجام شده</div>
+    <div class="overall-stats">
+      <div class="stat-box"><div class="stat-num" id="overallDone">0</div><div class="stat-label">انجام شده</div></div>
+      <div class="stat-box"><div class="stat-num" id="overallTotal">0</div><div class="stat-label">کل</div></div>
+    </div>
+    <div class="overall-bar"><div class="overall-fill" id="overallBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="section">
+    <h2>🎲 چالش امروز</h2>
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 چالش روزانه</div>
+      <div class="challenge-text" id="challengeText">برای دیدن چالش امروز، دکمه رو بزن</div>
+      <button class="challenge-btn" onclick="getNewChallenge()">🎲 چالش جدید</button>
     </div>
   </div>
-  <div class="overall-bar"><div class="overall-fill" id="overallBar" style="width:0%"></div></div>
-</div>
 
-<div class="section">
-  <h2>📅 تاریخچه ۷ روز اخیر</h2>
-  <div class="history-summary">
-    <div class="hs-box">
-      <div class="hs-num" id="avgPct">0%</div>
-      <div class="hs-label">میانگین هفته</div>
-    </div>
-    <div class="hs-box">
-      <div class="hs-num" id="bestDay">—</div>
-      <div class="hs-label">بهترین روز</div>
-    </div>
-    <div class="hs-box">
-      <div class="hs-num" id="streak">0</div>
-      <div class="hs-label">روز متوالی موفق</div>
+  <div class="section">
+    <h2>🎁 جایزه امروز</h2>
+    <div class="reward-box">
+      <div class="reward-title">🎰 جعبه جایزه</div>
+      <div style="font-size:12px; opacity:0.9; margin-bottom:8px;">اگر امروز موفق بودی، شانست رو امتحان کن!</div>
+      <button class="reward-btn" onclick="openReward()">🎲 باز کردن جعبه</button>
+      <div id="rewardResult"></div>
     </div>
   </div>
-  <div id="historyList"></div>
 </div>
 
+<div class="tab-content" id="tab-stats">
+  <div class="section">
+    <h2>📅 تقویم ماهانه</h2>
+    <div class="month-nav">
+      <button onclick="changeMonth(-1)">◀ ماه قبل</button>
+      <div class="month-title" id="monthTitle">—</div>
+      <button onclick="changeMonth(1)">ماه بعد ▶</button>
+    </div>
+    <div class="calendar" id="calendarGrid"></div>
+    <div class="cal-legend">
+      <span><span class="legend-dot" style="background:#22c55e;"></span>عالی</span>
+      <span><span class="legend-dot" style="background:#f59e0b;"></span>خوب</span>
+      <span><span class="legend-dot" style="background:#ef4444;"></span>ضعیف</span>
+      <span><span class="legend-dot" style="background:#475569;"></span>بدون فعالیت</span>
+    </div>
+  </div>
+  <div class="section">
+    <h2>📆 تقویم سالانه</h2>
+    <div class="year-calendar" id="yearCalendar"></div>
+  </div>
+  <div class="section">
+    <h2>📊 نمودار هفته</h2>
+    <div class="bar-chart" id="weekChart"></div>
+    <div class="stats-summary">
+      <div class="ss-box"><div class="ss-num" id="avgPct">0%</div><div class="ss-label">میانگین</div></div>
+      <div class="ss-box"><div class="ss-num" id="bestDay">—</div><div class="ss-label">بهترین روز</div></div>
+      <div class="ss-box"><div class="ss-num" id="streak">0</div><div class="ss-label">روز متوالی</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>📈 نمودار ۳۰ روز اخیر</h2>
+    <svg class="month-chart" id="monthChart" viewBox="0 0 300 120" preserveAspectRatio="none"></svg>
+  </div>
+  <div class="section">
+    <h2>📈 نمودار سالانه</h2>
+    <div class="bar-chart" id="yearChart"></div>
+  </div>
+  <div class="section">
+    <h2>🏆 دستاوردهای من</h2>
+    <div class="achievements-grid" id="achievementsGrid"></div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-analysis">
+  <div class="section"><h2>🎓 تحلیل هوشمند</h2><div id="analysisBox"></div></div>
+  <div class="section"><h2>🤖 پیشنهاد عادت</h2><div id="smartSuggestBox"></div></div>
+  <div class="section"><h2>🔮 پیش‌بینی موفقیت</h2><div id="predictionBox"></div></div>
+  <div class="section"><h2>📊 رقابت با خودت</h2><div id="compareBox"></div></div>
+  <div class="section"><h2>📉 مقایسه ماه‌ها</h2><div id="monthCompareBox"></div></div>
+  <div class="section"><h2>🔥 رکوردهای شخصی</h2><div id="recordsBox"></div></div>
+</div>
+
+<div class="tab-content" id="tab-timer">
+  <div class="section">
+    <h2>⏱️ تایمر تمرکز</h2>
+    <div class="timer-box">
+      <div class="timer-display" id="timerDisplay">۲۵:۰۰</div>
+      <div>
+        <button class="timer-preset" onclick="setTimer(15)">۱۵</button>
+        <button class="timer-preset" onclick="setTimer(25)">۲۵</button>
+        <button class="timer-preset" onclick="setTimer(45)">۴۵</button>
+        <button class="timer-preset" onclick="setTimer(60)">۶۰</button>
+        <button class="timer-preset" onclick="setCustomTimer()">⚙️ دلخواه</button>
+      </div>
+      <div class="timer-btns">
+        <button class="timer-btn timer-start" id="timerStartBtn" onclick="startTimer()">شروع</button>
+        <button class="timer-btn timer-pause" id="timerPauseBtn" onclick="pauseTimer()" style="display:none;">توقف</button>
+        <button class="timer-btn timer-reset" onclick="resetTimer()">ریست</button>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>📊 آمار تمرکز</h2>
+    <div style="text-align:center; padding:15px;">
+      <div style="font-size:32px; color:var(--green); font-weight:bold;" id="totalFocusMin">0</div>
+      <div style="font-size:12px; color:var(--text-dim);">دقیقه تمرکز کل</div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-dreams">
+  <div class="section dreams-section">
+    <h2>💫 آرزوها و اهداف من</h2>
+    <div class="dream-block">
+      <h3>🌟 امروز مشتاقم...</h3>
+      <div id="dreamTodayList"></div>
+      <div class="dream-add" id="dreamTodayAdd">
+        <input type="text" id="dreamTodayInput" placeholder="مثلاً: امروز ورزش کنم">
+        <button onclick="addDream('today')">افزودن</button>
+      </div>
+    </div>
+    <div class="dream-block">
+      <h3>📅 این هفته مشتاقم...</h3>
+      <div id="dreamWeekList"></div>
+      <div class="dream-add" id="dreamWeekAdd">
+        <input type="text" id="dreamWeekInput" placeholder="مثلاً: ۵ روز ورزش کنم">
+        <button onclick="addDream('week')">افزودن</button>
+      </div>
+    </div>
+    <div class="dream-block">
+      <h3>🗓️ این ماه مشتاقم...</h3>
+      <div id="dreamMonthList"></div>
+      <div class="dream-add" id="dreamMonthAdd">
+        <input type="text" id="dreamMonthInput" placeholder="مثلاً: ۲۰ روز ورزش کنم">
+        <button onclick="addDream('month')">افزودن</button>
+      </div>
+    </div>
+    <div class="dream-block">
+      <h3>📊 این سال مشتاقم...</h3>
+      <div id="dreamYearList"></div>
+      <div class="dream-add" id="dreamYearAdd">
+        <input type="text" id="dreamYearInput" placeholder="مثلاً: ۱۰ کیلو وزن کم کنم">
+        <button onclick="addDream('year')">افزودن</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-rewards">
+  <div class="section">
+    <h2>🎁 جایزه‌های من</h2>
+    <div id="rewardsListDisplay"></div>
+    <div class="add-box" id="rewardsAddBox" style="flex-direction:column;">
+      <input type="text" id="rewardNameInput" placeholder="نام جایزه...">
+      <div style="display:flex; gap:8px; width:100%;">
+        <input type="number" id="rewardYearInput" placeholder="سال" min="1300" max="1500" style="flex:1;">
+        <input type="number" id="rewardMonthInput" placeholder="ماه" min="1" max="12" style="flex:1;">
+        <input type="number" id="rewardDayInput" placeholder="روز" min="1" max="31" style="flex:1;">
+      </div>
+      <button onclick="addReward()" style="width:100%;">افزودن جایزه (تاریخ شمسی)</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-note">
+  <div class="section">
+    <h2>📝 یادداشت امروز</h2>
+    <div class="tags-bar" id="noteTagsBar"></div>
+    <textarea class="note-area" id="noteArea" placeholder="اینجا هر چی می‌خوای بنویس..."></textarea>
+    <div class="add-box" id="noteAddBox">
+      <input type="text" id="tagInput" placeholder="برچسب (با کاما)">
+      <button onclick="saveNoteTags()">ذخیره برچسب</button>
+      <button onclick="togglePinNote()" id="pinBtn">📌 پین</button>
+    </div>
+    <div class="note-info" id="noteInfo">💾 خودکار ذخیره می‌شه</div>
+  </div>
+  <div class="section">
+    <h2>🔍 جستجو در همه‌چیز</h2>
+    <div class="search-box">
+      <input type="text" id="noteSearch" placeholder="جستجو..." oninput="searchNotes()">
+    </div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-diary">
+  <div class="section">
+    <h2>📖 دفتر خاطرات</h2>
+    <div style="text-align:center; margin-bottom:12px;">
+      <button class="share-btn" onclick="downloadDiaryPDF()">📥 دانلود PDF کامل خاطرات</button>
+    </div>
+    <div id="diaryList"></div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-extras">
+  <div class="section">
+    <h2>💌 پیام من به خودم</h2>
+    <textarea class="note-area" id="selfMessage" placeholder="یه پیام انگیزشی برای خودت بنویس..." oninput="saveSelfMessage()"></textarea>
+  </div>
+  <div class="section">
+    <h2>🌡️ حال و احوال امروز</h2>
+    <div class="mood-grid" id="moodGrid"></div>
+    <div class="mood-history" id="moodHistory"></div>
+  </div>
+  <div class="section">
+    <h2>💧 شمارنده آب</h2>
+    <div class="add-box">
+      <select id="cupSizeSelect" onchange="saveCupSize()">
+        <option value="250">۲۵۰ میلی‌لیتر</option>
+        <option value="300">۳۰۰ میلی‌لیتر</option>
+        <option value="350">۳۵۰ میلی‌لیتر</option>
+        <option value="400">۴۰۰ میلی‌لیتر</option>
+        <option value="500">۵۰۰ میلی‌لیتر</option>
+        <option value="750">۷۵۰ میلی‌لیتر</option>
+        <option value="1000">۱ لیتر (۱۰۰۰ml)</option>
+      </select>
+    </div>
+    <div class="counter-box" style="margin-top:10px;">
+      <div class="counter-num" id="waterCount">0</div>
+      <div class="counter-label">لیوان آب</div>
+      <div class="water-total">حجم کل: <strong id="waterVolume">۰ ml</strong></div>
+      <div style="margin-top:10px;">
+        <button class="counter-btn minus" onclick="changeWater(-1)">− ۱ لیوان</button>
+        <button class="counter-btn" onclick="changeWater(1)">+ ۱ لیوان</button>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>📚 شمارنده صفحه کتاب</h2>
+    <div class="counter-box">
+      <div class="counter-num" id="bookCount">0</div>
+      <div class="counter-label">صفحه امروز</div>
+      <div class="water-total">مجموع کل: <strong id="bookTotal">۰ صفحه</strong></div>
+      <div style="margin-top:10px;">
+        <button class="counter-btn minus small" onclick="changeBook(-1)">− ۱</button>
+        <button class="counter-btn small" onclick="changeBook(1)">+ ۱</button>
+        <button class="counter-btn small" onclick="changeBook(5)">+ ۵</button>
+        <button class="counter-btn small" onclick="changeBook(10)">+ ۱۰</button>
+        <button class="counter-btn small" onclick="changeBook(25)">+ ۲۵</button>
+        <button class="counter-btn small" onclick="changeBook(50)">+ ۵۰</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-report">
+  <div class="section">
+    <h2>🖼️ گزارش تصویری</h2>
+    <div style="text-align:center;">
+      <canvas class="report-canvas" id="reportCanvas" width="600" height="800"></canvas>
+      <div>
+        <button class="report-btn" onclick="generateReport()">🎨 ساخت گزارش</button>
+        <button class="report-btn" onclick="downloadReport()">📥 دانلود</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-settings">
+  <div class="section">
+    <h2>⚙️ تنظیمات عمومی</h2>
+    <div class="setting-row">
+      <span class="setting-label">🌙 حالت شب/روز</span>
+      <button class="setting-btn" id="themeBtn" onclick="toggleTheme()">تغییر تم</button>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">🎨 رنگ/تم</span>
+      <select class="setting-input" id="colorThemeSelect" onchange="changeColorTheme()">
+        <option value="">آبی (پیش‌فرض)</option>
+        <optgroup label="🌙 تم‌های خاص">
+          <option value="theme-ramadan">🌙 رمضان</option>
+          <option value="theme-muharram">🕌 محرم</option>
+          <option value="theme-nowruz">🌸 نوروز</option>
+          <option value="theme-eid">🌺 عید فطر</option>
+          <option value="theme-qurban">🐑 عید قربان</option>
+          <option value="theme-christmas">🎄 کریسمس</option>
+          <option value="theme-halloween">🎃 هالووین</option>
+          <option value="theme-rose">💖 رزگلد</option>
+          <option value="theme-sea">🌊 دریا</option>
+          <option value="theme-space">🌌 فضا</option>
+          <option value="theme-fire">🔥 آتش</option>
+          <option value="theme-winter">❄️ زمستان</option>
+        </optgroup>
+        <optgroup label="🎨 تم‌های رنگ">
+          <option value="theme-purple">بنفش</option>
+          <option value="theme-green">سبز</option>
+          <option value="theme-pink">صورتی</option>
+          <option value="theme-orange">نارنجی</option>
+          <option value="theme-teal">فیروزه‌ای</option>
+          <option value="theme-red">قرمز</option>
+          <option value="theme-yellow">زرد</option>
+          <option value="theme-indigo">نیلی</option>
+          <option value="theme-cyan">سایان</option>
+          <option value="theme-lime">لیمویی</option>
+          <option value="theme-amber">کهربایی</option>
+          <option value="theme-emerald">زمردی</option>
+          <option value="theme-sky">آسمانی</option>
+          <option value="theme-violet">بنفشه</option>
+          <option value="theme-fuchsia">سرخابی</option>
+          <option value="theme-slate">خاکستری</option>
+          <option value="theme-stone">سنگی</option>
+          <option value="theme-coral">مرجانی</option>
+          <option value="theme-mint">نعناعی</option>
+          <option value="theme-lavender">اسطوخودوس</option>
+          <option value="theme-gold">طلایی</option>
+          <option value="theme-bronze">برنزی</option>
+          <option value="theme-silver">نقره‌ای</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">🔤 فونت</span>
+      <select class="setting-input" id="fontSelect" onchange="changeFont()">
+        <option value="Tahoma, sans-serif">Tahoma</option>
+        <option value="Vazirmatn, sans-serif">وزیرمتن</option>
+        <option value="Lalezar, sans-serif">لاله‌زار</option>
+        <option value="Amiri, serif">امیری</option>
+        <option value="Sahel, sans-serif">ساحل</option>
+        <option value="Shabnam, sans-serif">شبنم</option>
+        <option value="Yekan Bakh, sans-serif">یکان بخ</option>
+        <option value="Estedad, sans-serif">استعداد</option>
+        <option value="Gandom, sans-serif">گندم</option>
+        <option value="Samim, sans-serif">صمیم</option>
+        <option value="Tanha, sans-serif">تنها</option>
+        <option value="Parastoo, sans-serif">پرستو</option>
+        <option value="Gulzar, serif">گلزار</option>
+        <option value="Markazi Text, serif">مرکزی</option>
+        <option value="Noto Naskh Arabic, serif">نسخ</option>
+        <option value="Noto Kufi Arabic, sans-serif">کوفی</option>
+      </select>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">👤 نام من</span>
+      <input type="text" class="setting-input" id="userNameInput" placeholder="اسمت" onchange="saveUserName()">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">💬 جمله بالای صفحه</span>
+      <button class="setting-btn" onclick="editMotivation()">ویرایش</button>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">🎵 موسیقی پس‌زمینه</span>
+      <button class="setting-btn small" id="musicBtn" onclick="toggleMusic()">خاموش</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔐 امنیت</h2>
+    <div class="setting-row">
+      <span class="setting-label">🔒 قفل پسورد</span>
+      <button class="setting-btn small" id="passBtn" onclick="togglePassword()">فعال کردن</button>
+    </div>
+    <div class="setting-row" id="changePassRow" style="display:none;">
+      <span class="setting-label">✏️ تغییر پسورد</span>
+      <button class="setting-btn small" onclick="changePassword()">تغییر</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔐 کد شخصی پشتیبان</h2>
+    <div class="notif-desc" style="margin-bottom:10px;">یک کد یکتا که کل داده‌هات رو داره. کپی کن و جایی امن نگه دار.</div>
+    <button class="setting-btn success" style="width:100%; margin-bottom:8px;" onclick="generateBackupCode()">🔐 ساخت کد پشتیبان</button>
+    <div id="backupCodeDisplay"></div>
+    <button class="setting-btn" style="width:100%; margin-top:8px;" onclick="restoreFromCode()">📥 بازیابی از کد</button>
+  </div>
+
+  <div class="section">
+    <h2>🔔 صدا و ویبره</h2>
+    <div class="setting-row">
+      <span class="setting-label">🔊 صدای تیک</span>
+      <select class="setting-input" id="soundSelect" onchange="changeSound()">
+        <option value="none">بدون صدا</option>
+        <option value="tick">تیک</option>
+        <option value="beep">بیپ</option>
+        <option value="bell">زنگ</option>
+        <option value="click">کلیک</option>
+        <option value="success">موفقیت</option>
+        <option value="coin">سکه</option>
+        <option value="ding">دینگ</option>
+        <option value="drop">قطره</option>
+        <option value="pop">پاپ</option>
+        <option value="sparkle">جرقه</option>
+        <option value="piano">پیانو</option>
+        <option value="drum">طبل</option>
+        <option value="guitar">گیتار</option>
+        <option value="boom">بوم</option>
+        <option value="shoot">شلیک</option>
+        <option value="trumpet">شیپور</option>
+        <option value="zap">زاپ</option>
+      </select>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">📳 شدت ویبره</span>
+      <select class="setting-input" id="vibrateSelect" onchange="changeVibrate()">
+        <option value="0">خاموش</option>
+        <option value="20">کوتاه</option>
+        <option value="50">متوسط</option>
+        <option value="100">بلند</option>
+        <option value="200">طولانی</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔔 یادآوری خواب</h2>
+    <div class="setting-row">
+      <span class="setting-label">🔘 فعال بودن</span>
+      <button class="setting-btn small" id="sleepToggleBtn" onclick="toggleSleepNotification()">روشن</button>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">⏰ زمان</span>
+      <input type="time" class="setting-input" id="sleepTimeInput" onchange="saveSleepTime()">
+    </div>
+    <input type="text" class="setting-input" id="sleepMessageInput" placeholder="متن یادآوری..." style="width:100%; margin:8px 0;">
+    <button class="setting-btn small success" onclick="saveSleepMessage()">💾 ذخیره</button>
+    <button class="setting-btn small" onclick="requestNotificationPermission()">🔔 اجازه</button>
+    <button class="setting-btn small" onclick="testNotification()">📨 تست</button>
+  </div>
+
+  <div class="section">
+    <h2>📸 پس‌زمینه شخصی</h2>
+    <div class="setting-row">
+      <span class="setting-label">🖼️ عکس</span>
+      <button class="setting-btn small" onclick="document.getElementById('bgFile').click()">انتخاب</button>
+      <input type="file" id="bgFile" style="display:none" accept="image/*" onchange="setBackground(event)">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">❌ حذف</span>
+      <button class="setting-btn small danger" onclick="removeBackground()">حذف</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💾 پشتیبان‌گیری فایل</h2>
+    <div class="setting-row">
+      <span class="setting-label">💾 دانلود</span>
+      <button class="setting-btn success" onclick="exportData()">دانلود</button>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">📥 بازیابی</span>
+      <button class="setting-btn" onclick="document.getElementById('importFile').click()">آپلود</button>
+      <input type="file" id="importFile" style="display:none" accept=".json" onchange="importData(event)">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">📅 پشتیبان خودکار</span>
+      <button class="setting-btn small" id="autoBackupBtn" onclick="toggleAutoBackup()">خاموش</button>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">🗑️ پاک کردن همه</span>
+      <button class="setting-btn danger" onclick="clearAll()">پاک</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔄 بروزرسانی اپ</h2>
+    <div class="setting-row">
+      <span class="setting-label">✨ نسخه فعلی</span>
+      <span style="color:var(--primary); font-weight:bold;">۸.۰</span>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">🔄 بروزرسانی</span>
+      <button class="setting-btn small" onclick="forceUpdate()">چک کردن</button>
+    </div>
+  </div>
+
+  <div class="version-box">نسخه ۸.۰ — با ۵۰+ قابلیت + PWA</div>
+</div>
+
+<div class="confetti-container" id="confettiContainer"></div>accesskey
+  
 <script>
-let rawData = JSON.parse(localStorage.getItem('myAppData')) || {
-  habits: [], tasks: [], avoids: [], history: {}
-};
+// ============ توابع تبدیل تاریخ ============
+function toJalali(gy, gm, gd) {
+  const g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+  let jy = (gy <= 1600) ? 0 : 979;
+  gy -= (gy <= 1600) ? 621 : 1600;
+  const gy2 = (gm > 2) ? (gy + 1) : gy;
+  let days = (365 * gy) + Math.floor((gy2 + 3) / 4) - Math.floor((gy2 + 99) / 100) + Math.floor((gy2 + 399) / 400) - 80 + gd + g_d_m[gm - 1];
+  jy += 33 * Math.floor(days / 12053);
+  days %= 12053;
+  jy += 4 * Math.floor(days / 1461);
+  days %= 1461;
+  if (days > 365) { jy += Math.floor((days - 1) / 365); days = (days - 1) % 365; }
+  const jm = (days < 186) ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
+  const jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+  return [jy, jm, jd];
+}
 
-function upgradeList(list) {
-  return list.map(item => {
-    if (typeof item === 'string') return { text: item, time: '' };
-    return item;
-  });
+function jalaliToGregorian(jy, jm, jd) {
+  jy += 1595;
+  let days = -355668 + (365 * jy) + (Math.floor(jy / 33) * 8) + Math.floor(((jy % 33) + 3) / 4) + jd + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
+  let gy = 400 * Math.floor(days / 146097);
+  days %= 146097;
+  if (days > 36524) { gy += 100 * Math.floor(--days / 36524); days %= 36524; if (days >= 365) days++; }
+  gy += 4 * Math.floor(days / 1461);
+  days %= 1461;
+  if (days > 365) { gy += Math.floor((days - 1) / 365); days = (days - 1) % 365; }
+  let gd = days + 1;
+  const sal_a = [0, 31, (gy % 4 === 0 && (gy % 100 !== 0 || gy % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  let gm = 0;
+  for (gm = 0; gm < 13; gm++) { const v = sal_a[gm]; if (gd <= v) break; gd -= v; }
+  return [gy, gm, gd];
+}
+
+function toHijri(gy, gm, gd) {
+  const jd = Math.floor((gy * 365.25) + (gm * 30.6) + gd) - 1948440;
+  const hYear = Math.floor((30 * jd + 10646) / 10631);
+  const hMonth = Math.min(12, Math.max(1, Math.ceil((jd - 29 - 30 * Math.ceil((hYear - 1) * 12 / 30)) / 29.5) + 1));
+  const hDay = Math.max(1, Math.min(30, jd - Math.ceil(29.5 * (hMonth - 1)) - 30 * Math.ceil((hYear - 1) * 12 / 30) + 1));
+  return [hYear, hMonth, hDay];
+}
+
+const jalaliMonths = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
+const hijriMonths = ['محرم', 'صفر', 'ربیع‌الاول', 'ربیع‌الثانی', 'جمادی‌الاول', 'جمادی‌الثانی', 'رجب', 'شعبان', 'رمضان', 'شوال', 'ذی‌القعده', 'ذی‌الحجه'];
+
+// ============ داده‌ها ============
+let rawData = {};
+try {
+  rawData = JSON.parse(localStorage.getItem('myAppData')) || {};
+} catch(e) {
+  rawData = {};
 }
 
 let data = {
-  habits: upgradeList(rawData.habits || []),
-  tasks: upgradeList(rawData.tasks || []),
-  avoids: upgradeList(rawData.avoids || []),
-  history: rawData.history || {}
+  habits: (rawData.habits || []).map(function(i) {
+    if (typeof i === 'string') return { text: i, time: '', cat: '', priority: 0, days: [], goal: 0 };
+    return {
+      text: i.text || '',
+      time: i.time || '',
+      cat: i.cat || '',
+      priority: i.priority || 0,
+      days: Array.isArray(i.days) ? i.days : [],
+      goal: i.goal || 0
+    };
+  }),
+  tasks: (rawData.tasks || []).map(function(i) {
+    if (typeof i === 'string') return { text: i, time: '', cat: '', priority: 0 };
+    return { text: i.text || '', time: i.time || '', cat: i.cat || '', priority: i.priority || 0 };
+  }),
+  avoids: (rawData.avoids || []).map(function(i) {
+    if (typeof i === 'string') return { text: i, time: '', cat: '' };
+    return { text: i.text || '', time: i.time || '', cat: i.cat || '' };
+  }),
+  history: rawData.history || {},
+  dreams: rawData.dreams || { today: [], week: [], month: [], year: [] },
+  notes: rawData.notes || {},
+  noteTags: rawData.noteTags || {},
+  pinnedNotes: rawData.pinnedNotes || [],
+  customMotivation: rawData.customMotivation || null,
+  focusMinutes: rawData.focusMinutes || 0,
+  lastResetDate: rawData.lastResetDate || null,
+  userName: rawData.userName || '',
+  password: rawData.password || null,
+  bgImage: rawData.bgImage || null,
+  colorTheme: rawData.colorTheme || '',
+  font: rawData.font || '',
+  soundType: rawData.soundType || 'tick',
+  vibrateMs: rawData.vibrateMs !== undefined ? rawData.vibrateMs : 30,
+  points: rawData.points || 0,
+  rewardsList: rawData.rewardsList || [],
+  lastRewardDate: rawData.lastRewardDate || null,
+  sleepEnabled: rawData.sleepEnabled !== false,
+  sleepTime: rawData.sleepTime || '23:00',
+  sleepMessage: rawData.sleepMessage || 'وقت خوابه! 🌙',
+  notifiedSleepDate: rawData.notifiedSleepDate || null,
+  musicOn: rawData.musicOn || false,
+  selfMessage: rawData.selfMessage || '',
+  moods: rawData.moods || {},
+  water: rawData.water || {},
+  cupSize: rawData.cupSize || 250,
+  books: rawData.books || {},
+  booksTotal: rawData.booksTotal || 0,
+  lastChallengeDate: rawData.lastChallengeDate || null,
+  currentChallenge: rawData.currentChallenge || null,
+  autoBackup: rawData.autoBackup || false,
+  lastBackupDate: rawData.lastBackupDate || null,
+  notifiedHabits: rawData.notifiedHabits || {}
 };
 
-// ذخیره کدام آیتم در حال ویرایش است
+if (!data.dreams.today) data.dreams.today = [];
+if (!data.dreams.week) data.dreams.week = [];
+if (!data.dreams.month) data.dreams.month = [];
+if (!data.dreams.year) data.dreams.year = [];
+
 let editing = { habits: -1, tasks: -1, avoids: -1 };
+let activeCategory = '';
+let activeNoteTag = '';
+let viewingDate = null;
 
 const today = new Date().toISOString().split('T')[0];
 
-document.getElementById('todayDate').textContent = new Date().toLocaleDateString('fa-IR', {
-  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+// ============ ابزار ============
+function toFa(n) {
+  return String(n).replace(/\d/g, function(d) { return '۰۱۲۳۴۵۶۷۸۹'[d]; });
+}
+
+function getTargetDate() {
+  return viewingDate || today;
+}
+
+function isViewingPast() {
+  return viewingDate && viewingDate !== today;
+}
+
+function getDayOfWeek(dateStr) {
+  const d = new Date(dateStr);
+  return d.getDay();
+}
+
+function isHabitForDay(habit, dateStr) {
+  if (!habit.days || habit.days.length === 0) return true;
+  const dow = getDayOfWeek(dateStr);
+  return habit.days.indexOf(dow) > -1;
+}
+
+function save() {
+  try {
+    localStorage.setItem('myAppData', JSON.stringify(data));
+  } catch(e) {
+    console.error('خطا در ذخیره:', e);
+  }
+}
+
+// ============ قفل پسورد ============
+function togglePasswordVisibility() {
+  const input = document.getElementById('lockInput');
+  const eye = document.getElementById('lockEye');
+  if (input.type === 'password') { input.type = 'text'; eye.textContent = '🙈'; }
+  else { input.type = 'password'; eye.textContent = '👁️'; }
+}
+
+function checkPassword() {
+  if (data.password && data.password.length > 0) {
+    document.getElementById('lockScreen').classList.remove('hidden');
+    setTimeout(function() { document.getElementById('lockInput').focus(); }, 100);
+  }
+}
+
+function unlockApp() {
+  const input = document.getElementById('lockInput').value;
+  if (input === data.password) {
+    document.getElementById('lockScreen').classList.add('hidden');
+    document.getElementById('lockError').textContent = '';
+    document.getElementById('lockInput').value = '';
+    document.getElementById('lockInput').type = 'password';
+    document.getElementById('lockEye').textContent = '👁️';
+  } else {
+    document.getElementById('lockError').textContent = '❌ پسورد اشتباهه';
+    const screen = document.getElementById('lockScreen');
+    screen.style.animation = 'shake 0.3s';
+    setTimeout(function() { screen.style.animation = ''; }, 300);
+  }
+}
+
+document.getElementById('lockInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') unlockApp();
 });
 
-function save() { localStorage.setItem('myAppData', JSON.stringify(data)); }
+function togglePassword() {
+  if (data.password) {
+    const input = prompt('پسورد فعلی رو وارد کن:');
+    if (input === null) return;
+    if (input !== data.password) { alert('❌ اشتباهه'); return; }
+    data.password = null;
+    save();
+    updatePasswordUI();
+    alert('✅ پسورد غیرفعال شد');
+  } else {
+    const pass = prompt('پسورد جدید (حداقل ۴ کاراکتر):');
+    if (pass === null) return;
+    if (!pass || pass.length < 4) { alert('❌ حداقل ۴ کاراکتر'); return; }
+    const confirmPass = prompt('تکرار پسورد:');
+    if (pass !== confirmPass) { alert('❌ تکرار مطابقت نداره'); return; }
+    data.password = pass;
+    save();
+    updatePasswordUI();
+    alert('✅ پسورد فعال شد.');
+  }
+}
 
-function renderList(type, containerId) {
-  const container = document.getElementById(containerId);
+function changePassword() {
+  const old = prompt('پسورد فعلی:');
+  if (old === null) return;
+  if (old !== data.password) { alert('❌ اشتباهه'); return; }
+  const pass = prompt('پسورد جدید (حداقل ۴ کاراکتر):');
+  if (pass === null) return;
+  if (!pass || pass.length < 4) { alert('❌ حداقل ۴ کاراکتر'); return; }
+  data.password = pass;
+  save();
+  alert('✅ پسورد تغییر کرد');
+}
+
+function updatePasswordUI() {
+  const btn = document.getElementById('passBtn');
+  const row = document.getElementById('changePassRow');
+  if (!btn || !row) return;
+  if (data.password) {
+    btn.textContent = 'غیرفعال کردن';
+    btn.classList.add('danger');
+    row.style.display = 'flex';
+  } else {
+    btn.textContent = 'فعال کردن';
+    btn.classList.remove('danger');
+    row.style.display = 'none';
+  }
+}
+
+// ============ صداها ============
+function playBeep(freq, duration, volume, type) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.value = freq;
+    osc.type = type || 'sine';
+    gain.gain.setValueAtTime(volume, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+    osc.start();
+    osc.stop(ctx.currentTime + duration);
+  } catch(e) {}
+}
+
+function playSequence(freqs, duration, volume, type) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    freqs.forEach(function(freq, i) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      osc.type = type || 'sine';
+      const startTime = ctx.currentTime + i * duration;
+      gain.gain.setValueAtTime(volume, startTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+      osc.start(startTime);
+      osc.stop(startTime + duration);
+    });
+  } catch(e) {}
+}
+
+const soundFns = {
+  none: function() {},
+  tick: function() { playBeep(800, 0.05, 0.05); },
+  beep: function() { playBeep(1000, 0.1, 0.1); },
+  bell: function() { playBeep(1500, 0.2, 0.15); },
+  click: function() { playBeep(600, 0.03, 0.03); },
+  success: function() { playSequence([523, 659, 784], 0.1, 0.1); },
+  coin: function() { playSequence([988, 1319], 0.08, 0.08, 'square'); },
+  ding: function() { playSequence([1200, 1600], 0.15, 0.1); },
+  drop: function() { playBeep(1800, 0.15, 0.08); },
+  pop: function() { playBeep(2000, 0.04, 0.08, 'square'); },
+  sparkle: function() { playSequence([1500, 2000, 2500], 0.05, 0.07); },
+  piano: function() { playSequence([262, 330, 392], 0.2, 0.1); },
+  drum: function() { playBeep(150, 0.15, 0.15, 'triangle'); },
+  guitar: function() { playSequence([196, 247, 294], 0.15, 0.08, 'sawtooth'); },
+  boom: function() { playBeep(100, 0.3, 0.2, 'triangle'); },
+  shoot: function() { playBeep(2500, 0.05, 0.1, 'square'); },
+  trumpet: function() { playSequence([392, 523, 659], 0.12, 0.1, 'sawtooth'); },
+  zap: function() { playBeep(3000, 0.08, 0.08, 'square'); }
+};
+
+function changeSound() {
+  const el = document.getElementById('soundSelect');
+  if (el) data.soundType = el.value;
+  save();
+  playCurrentSound();
+}
+
+function playCurrentSound() {
+  const fn = soundFns[data.soundType] || soundFns.tick;
+  fn();
+}
+
+function changeVibrate() {
+  const el = document.getElementById('vibrateSelect');
+  if (el) data.vibrateMs = parseInt(el.value) || 0;
+  save();
+  if (data.vibrateMs > 0 && navigator.vibrate) navigator.vibrate(data.vibrateMs);
+}
+
+function playTick() {
+  playCurrentSound();
+  if (data.vibrateMs > 0 && navigator.vibrate) navigator.vibrate(data.vibrateMs);
+}
+
+// ============ تم و فونت ============
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = isLight ? 'حالت شب' : 'حالت روز';
+}
+
+function changeColorTheme() {
+  const val = document.getElementById('colorThemeSelect').value;
+  const themes = ['theme-purple','theme-green','theme-pink','theme-orange','theme-teal','theme-red','theme-yellow','theme-indigo','theme-rose','theme-cyan','theme-lime','theme-amber','theme-emerald','theme-sky','theme-violet','theme-fuchsia','theme-slate','theme-stone','theme-coral','theme-mint','theme-lavender','theme-gold','theme-bronze','theme-silver','theme-ramadan','theme-muharram','theme-nowruz','theme-eid','theme-qurban','theme-christmas','theme-halloween','theme-sea','theme-space','theme-fire','theme-winter'];
+  document.body.classList.remove.apply(document.body.classList, themes);
+  if (val) document.body.classList.add(val);
+  data.colorTheme = val;
+  save();
+}
+
+function changeFont() {
+  const val = document.getElementById('fontSelect').value;
+  document.documentElement.style.setProperty('--font', val);
+  data.font = val;
+  save();
+}
+
+function saveUserName() {
+  const el = document.getElementById('userNameInput');
+  if (el) data.userName = el.value.trim();
+  save();
+  updateUserNameDisplay();
+}
+
+function updateUserNameDisplay() {
+  const el = document.getElementById('userNameDisplay');
+  if (el) el.textContent = data.userName ? '👤 ' + data.userName : '';
+}
+
+// ============ موسیقی ============
+let musicInterval = null;
+function toggleMusic() {
+  data.musicOn = !data.musicOn;
+  save();
+  updateMusicBtn();
+  if (data.musicOn) startMusic();
+  else stopMusic();
+}
+
+function updateMusicBtn() {
+  const btn = document.getElementById('musicBtn');
+  if (!btn) return;
+  if (data.musicOn) {
+    btn.textContent = 'روشن';
+    btn.classList.add('success');
+  } else {
+    btn.textContent = 'خاموش';
+    btn.classList.remove('success');
+  }
+}
+
+function startMusic() {
+  if (musicInterval) clearInterval(musicInterval);
+  const notes = [262, 294, 330, 349, 392, 440, 494, 523];
+  let i = 0;
+  musicInterval = setInterval(function() {
+    playBeep(notes[i % notes.length], 0.8, 0.02, 'sine');
+    i++;
+  }, 1500);
+}
+
+function stopMusic() {
+  if (musicInterval) clearInterval(musicInterval);
+  musicInterval = null;
+}
+
+// ============ پس‌زمینه ============
+function setBackground(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    data.bgImage = e.target.result;
+    save();
+    applyBackground();
+    alert('✅ پس‌زمینه تنظیم شد');
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeBackground() {
+  data.bgImage = null;
+  save();
+  applyBackground();
+  alert('✅ پس‌زمینه حذف شد');
+}
+
+function applyBackground() {
+  if (data.bgImage) {
+    document.body.style.backgroundImage = 'url(' + data.bgImage + ')';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
+  } else {
+    document.body.style.backgroundImage = '';
+  }
+}
+
+// ============ سطوح ============
+const levels = [
+  { name: 'تازه‌کار', icon: '🌱', min: 0, max: 50 },
+  { name: 'مبتدی', icon: '🌿', min: 50, max: 150 },
+  { name: 'کوشا', icon: '🍀', min: 150, max: 300 },
+  { name: 'فعال', icon: '🔥', min: 300, max: 500 },
+  { name: 'کوشنده', icon: '⚡', min: 500, max: 800 },
+  { name: 'متعهد', icon: '💪', min: 800, max: 1200 },
+  { name: 'پیگیر', icon: '🎯', min: 1200, max: 1800 },
+  { name: 'پیشرفته', icon: '🚀', min: 1800, max: 2500 },
+  { name: 'ماهر', icon: '⭐', min: 2500, max: 3500 },
+  { name: 'حرفه‌ای', icon: '🏆', min: 3500, max: 5000 },
+  { name: 'نخبه', icon: '💎', min: 5000, max: 7000 },
+  { name: 'استاد', icon: '👑', min: 7000, max: 10000 },
+  { name: 'افسانه‌ای', icon: '🌟', min: 10000, max: 15000 },
+  { name: 'قهرمان', icon: '🏅', min: 15000, max: 25000 },
+  { name: 'جاودانه', icon: '🔥', min: 25000, max: 999999 }
+];
+
+function getCurrentLevel() {
+  for (let i = 0; i < levels.length; i++) {
+    const lv = levels[i];
+    if (data.points >= lv.min && data.points < lv.max) return lv;
+  }
+  return levels[levels.length - 1];
+}
+
+function addPoints(amount) {
+  if (isViewingPast()) return;
+  const oldLevel = getCurrentLevel().name;
+  data.points += amount;
+  save();
+  updateLevelUI();
+  const newLevel = getCurrentLevel().name;
+  if (oldLevel !== newLevel) {
+    setTimeout(function() {
+      showConfetti();
+      alert('🎉 تبریک! سطحت از «' + oldLevel + '» به «' + newLevel + '» ارتقا یافت!');
+    }, 500);
+  }
+}
+
+function updateLevelUI() {
+  const lv = getCurrentLevel();
+  const iconEl = document.getElementById('levelIcon');
+  if (!iconEl) return;
+  iconEl.textContent = lv.icon;
+  document.getElementById('levelName').textContent = lv.name;
+  const range = lv.max - lv.min;
+  const progress = range > 0 ? ((data.points - lv.min) / range) * 100 : 100;
+  document.getElementById('levelProgress').style.width = Math.min(100, progress) + '%';
+  document.getElementById('levelPoints').textContent = toFa(data.points) + ' / ' + toFa(lv.max) + ' امتیاز';
+}
+
+// ============ کاغذرنگی ============
+function showConfetti() {
+  const container = document.getElementById('confettiContainer');
+  if (!container) return;
+  const colors = ['#fbbf24', '#22c55e', '#3b82f6', '#a78bfa', '#ec4899', '#f59e0b', '#ef4444'];
+  for (let i = 0; i < 60; i++) {
+    const conf = document.createElement('div');
+    conf.className = 'confetti';
+    conf.style.left = Math.random() * 100 + '%';
+    conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+    conf.style.animationDelay = Math.random() * 2 + 's';
+    conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    container.appendChild(conf);
+    setTimeout(function() { conf.remove(); }, 5000);
+  }
+}
+
+// ============ کد شخصی پشتیبان ============
+function generateBackupCode() {
+  try {
+    const jsonStr = JSON.stringify(data);
+    const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+    const chunks = encoded.match(/.{1,50}/g) || [];
+    const code = 'FATEH-' + chunks.join('-');
+    const display = document.getElementById('backupCodeDisplay');
+    display.innerHTML = '<div class="backup-code-box">' + code + '</div>' +
+      '<div style="display:flex; gap:6px; margin-top:6px;">' +
+      '<button class="setting-btn small success" style="flex:1;" onclick="copyBackupCode()">📋 کپی</button>' +
+      '<button class="setting-btn small" style="flex:1;" onclick="emailBackupCode()">📧 ایمیل</button>' +
+      '</div>' +
+      '<div class="notif-desc" style="margin-top:8px; color:var(--orange);">⚠️ این کد رو در جای امن ذخیره کن.</div>';
+    window._lastBackupCode = code;
+  } catch(e) {
+    alert('❌ خطا در ساخت کد: ' + e.message);
+  }
+}
+
+function copyBackupCode() {
+  const code = window._lastBackupCode;
+  if (!code) return;
+  navigator.clipboard.writeText(code).then(function() {
+    alert('✅ کد پشتیبان کپی شد!');
+  }).catch(function() {
+    alert('❌ کپی نشد. کد رو دستی انتخاب کن.');
+  });
+}
+
+function emailBackupCode() {
+  const code = window._lastBackupCode;
+  if (!code) { alert('❌ اول کد رو بساز'); return; }
+  const subject = encodeURIComponent('کد پشتیبان اپ عادت‌های من - ' + new Date().toLocaleDateString('fa-IR'));
+  const body = encodeURIComponent('کد پشتیبان من:\n\n' + code + '\n\n⚠️ این کد رو نگه دار.');
+  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+}
+
+function restoreFromCode() {
+  const code = prompt('کد پشتیبان رو اینجا Paste کن:');
+  if (!code) return;
+  try {
+    let cleaned = code.trim();
+    if (cleaned.indexOf('FATEH-') === 0) cleaned = cleaned.substring(6);
+    cleaned = cleaned.replace(/-/g, '');
+    const jsonStr = decodeURIComponent(escape(atob(cleaned)));
+    const imported = JSON.parse(jsonStr);
+    if (confirm('⚠️ داده‌های فعلی جایگزین می‌شن. مطمئنی؟')) {
+      localStorage.setItem('myAppData', JSON.stringify(imported));
+      alert('✅ بازیابی موفق!');
+      location.reload();
+    }
+  } catch(e) {
+    alert('❌ کد نامعتبره!\n\nلطفاً کد رو دقیقاً کپی کن.');
+  }
+}
+
+// ============ پشتیبان فایل ============
+function exportData() {
+  const dataStr = JSON.stringify(data, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'habits-backup-' + today + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  alert('✅ فایل پشتیبان دانلود شد!');
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (confirm('⚠️ داده‌های فعلی جایگزین می‌شن. مطمئنی؟')) {
+        localStorage.setItem('myAppData', JSON.stringify(imported));
+        location.reload();
+      }
+    } catch(err) { alert('❌ فایل نامعتبره'); }
+  };
+  reader.readAsText(file);
+}
+
+function toggleAutoBackup() {
+  data.autoBackup = !data.autoBackup;
+  save();
+  updateAutoBackupBtn();
+  if (data.autoBackup) alert('✅ پشتیبان خودکار فعال شد');
+}
+
+function updateAutoBackupBtn() {
+  const btn = document.getElementById('autoBackupBtn');
+  if (!btn) return;
+  if (data.autoBackup) {
+    btn.textContent = 'روشن';
+    btn.classList.add('success');
+    btn.classList.remove('danger');
+  } else {
+    btn.textContent = 'خاموش';
+    btn.classList.remove('success');
+    btn.classList.add('danger');
+  }
+}
+
+function clearAll() {
+  if (confirm('⚠️ همه داده‌ها پاک می‌شن! مطمئنی؟')) {
+    if (confirm('⚠️ واقعاً مطمئنی؟')) {
+      localStorage.removeItem('myAppData');
+      location.reload();
+    }
+  }
+}
+
+// ============ بروزرسانی اپ ============
+function forceUpdate() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(regs) {
+      regs.forEach(function(reg) { reg.unregister(); });
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          names.forEach(function(name) { caches.delete(name); });
+        });
+      }
+      alert('✅ کش پاک شد. اپ دوباره بارگذاری می‌شه.');
+      setTimeout(function() { location.reload(true); }, 500);
+    });
+  } else {
+    alert('⚠️ PWA فعال نیست');
+  }
+}
+
+// ============ جمله انگیزشی ============
+const motivations = [
+  "🌟 امروز روز توئه، بهترین کارت رو بکن!",
+  "💪 هر قدم کوچیک، تو رو به هدفت نزدیک‌تر می‌کنه",
+  "🔥 تو قوی‌تر از چیزی هستی که فکر می‌کنی",
+  "✨ موفقیت، نتیجه تکرار کارهای کوچیکه",
+  "🚀 شروع کن، عالی بودن رو بعداً ببین",
+  "🎯 روی هدفت تمرکز کن، بقیه خودش درست می‌شه",
+  "🌈 سختی امروز، آسونی فردا رو می‌سازه",
+  "⭐ تو می‌تونی، فقط باید باور کنی",
+  "🌟 هیچ‌وقت برای شروع دیر نیست",
+  "🌱 هر روز یک فرصت جدید برای رشد",
+  "🏆 برنده‌ها کسانی‌ان که ادامه می‌دن",
+  "💎 تو ارزشمندتر از اونی هستی که فکر می‌کنی",
+  "🌸 امروز یک شروع تازه‌ست",
+  "🦁 شیر باش، نه گوسفند",
+  "🎨 زندگی رو خودت رنگ کن"
+];
+
+function getTodayMotivation() {
+  if (data.customMotivation && data.customMotivation.trim()) return data.customMotivation;
+  const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  return motivations[dayOfYear % motivations.length];
+}
+
+function renderMotivation() {
+  const box = document.getElementById('motivationBox');
+  if (!box) return;
+  box.innerHTML = '<div class="motivation-text">' + getTodayMotivation() + '</div>';
+}
+
+function editMotivation() {
+  const current = data.customMotivation || getTodayMotivation();
+  const box = document.getElementById('motivationBox');
+  box.innerHTML = '<input type="text" class="motivation-edit" id="motivInput" value="' + current.replace(/"/g, '&quot;') + '" placeholder="جمله خودت رو بنویس...">' +
+    '<div>' +
+    '<button class="motivation-btn" onclick="saveMotivation()">💾 ذخیره</button>' +
+    '<button class="motivation-btn" onclick="cancelMotivation()">انصراف</button>' +
+    '</div>';
+}
+
+function saveMotivation() {
+  const val = document.getElementById('motivInput').value.trim();
+  data.customMotivation = val || null;
+  save();
+  renderMotivation();
+}
+
+function cancelMotivation() { renderMotivation(); }
+
+// ============ ریست شبانه ============
+function checkDailyReset() {
+  if (data.lastResetDate === today) return;
+  data.tasks = [];
+  data.avoids = [];
+  data.dreams.today = [];
+  data.lastResetDate = today;
+  save();
+}
+
+// ============ تب‌ها ============
+function switchTab(tabName) {
+  try {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+
+    let activeTab = null;
+    document.querySelectorAll('.tab').forEach(function(t) {
+      const oc = t.getAttribute('onclick') || '';
+      if (oc.indexOf("'" + tabName + "'") > -1) activeTab = t;
+    });
+    if (activeTab) activeTab.classList.add('active');
+
+    const contentEl = document.getElementById('tab-' + tabName);
+    if (contentEl) contentEl.classList.add('active');
+
+    if (tabName === 'stats') { try { renderStats(); renderYearCalendar(); renderYearChart(); } catch(e) {} }
+    if (tabName === 'analysis') { try { renderAnalysis(); renderSmartSuggest(); renderPrediction(); renderCompare(); renderMonthCompare(); renderRecords(); } catch(e) {} }
+    if (tabName === 'timer') { try { renderTimerStats(); } catch(e) {} }
+    if (tabName === 'report') { try { generateReport(); } catch(e) {} }
+    if (tabName === 'note') { try { renderNoteTags(); searchNotes(); } catch(e) {} }
+    if (tabName === 'diary') { try { renderDiary(); } catch(e) {} }
+    if (tabName === 'rewards') { try { renderRewardsDisplay(); } catch(e) {} }
+    if (tabName === 'extras') { try { renderMoods(); renderCounters(); } catch(e) {} }
+  } catch(e) {
+    console.error('خطا در switchTab:', e);
+  }
+}
+
+// ============ راه‌اندازی اولیه ============
+try {
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('fa-IR', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+} catch(e) {}
+
+try {
+  const now = new Date();
+  const hijri = toHijri(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  document.getElementById('hijriDate').textContent = '🌙 ' + toFa(hijri[2]) + ' ' + hijriMonths[hijri[1] - 1] + ' ' + toFa(hijri[0]) + ' ق';
+} catch(e) {}
+</script>
+
+<script>
+// ============ نوتیفیکیشن عادت‌ها ============
+function checkHabitNotifications() {
+  if (!('Notification' in window) || Notification.permission !== 'granted') return;
+  const now = new Date();
+  const currentTime = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+  data.habits.forEach(function(habit, i) {
+    if (!habit.time) return;
+    if (habit.time !== currentTime) return;
+    if (!isHabitForDay(habit, today)) return;
+    const key = today + '_' + i;
+    if (data.notifiedHabits[key]) return;
+    const done = data.history[today] && data.history[today].habits && data.history[today].habits.indexOf(i) > -1;
+    if (done) return;
+    new Notification('🔔 وقت انجام عادت!', {
+      body: 'وقتشه «' + habit.text + '» رو انجام بدی',
+      tag: 'habit-' + i
+    });
+    data.notifiedHabits[key] = true;
+    save();
+  });
+}
+
+setInterval(checkHabitNotifications, 60000);
+
+function requestNotificationPermission() {
+  if (!('Notification' in window)) { alert('❌ مرورگر پشتیبانی نمی‌کنه'); return; }
+  Notification.requestPermission().then(function(perm) {
+    if (perm === 'granted') alert('✅ اجازه اعلان داده شد!');
+    else alert('⚠️ اجازه اعلان داده نشد');
+  });
+}
+
+function testNotification() {
+  if (!('Notification' in window)) { alert('❌ مرورگر پشتیبانی نمی‌کنه'); return; }
+  if (Notification.permission !== 'granted') { alert('❌ اول اجازه بده'); return; }
+  new Notification('🌙 یادآوری خواب', { body: data.sleepMessage });
+}
+
+function checkSleepNotification() {
+  if (!data.sleepEnabled) return;
+  if (!('Notification' in window) || Notification.permission !== 'granted') return;
+  const now = new Date();
+  const currentTime = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+  if (currentTime === data.sleepTime && data.notifiedSleepDate !== today) {
+    new Notification('🌙 یادآوری خواب', { body: data.sleepMessage });
+    data.notifiedSleepDate = today;
+    save();
+  }
+}
+
+setInterval(checkSleepNotification, 60000);
+
+function toggleSleepNotification() {
+  data.sleepEnabled = !data.sleepEnabled;
+  save();
+  updateSleepToggleBtn();
+}
+
+function updateSleepToggleBtn() {
+  const btn = document.getElementById('sleepToggleBtn');
+  if (!btn) return;
+  if (data.sleepEnabled) {
+    btn.textContent = 'روشن';
+    btn.classList.add('success');
+    btn.classList.remove('danger');
+  } else {
+    btn.textContent = 'خاموش';
+    btn.classList.remove('success');
+    btn.classList.add('danger');
+  }
+}
+
+function saveSleepTime() {
+  const el = document.getElementById('sleepTimeInput');
+  if (el) data.sleepTime = el.value;
+  save();
+}
+
+function saveSleepMessage() {
+  const el = document.getElementById('sleepMessageInput');
+  data.sleepMessage = (el && el.value.trim()) || 'وقت خوابه! 🌙';
+  save();
+  alert('✅ متن یادآوری ذخیره شد');
+}
+
+// ============ تقویم شمسی ============
+const jalaliWeekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
+let currentJYear = null;
+let currentJMonth = null;
+
+function initCalendarMonth() {
+  const now = new Date();
+  const j = toJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  currentJYear = j[0];
+  currentJMonth = j[1];
+}
+
+function changeMonth(delta) {
+  currentJMonth += delta;
+  if (currentJMonth > 12) { currentJMonth = 1; currentJYear++; }
+  if (currentJMonth < 1) { currentJMonth = 12; currentJYear--; }
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const grid = document.getElementById('calendarGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const titleEl = document.getElementById('monthTitle');
+  if (titleEl) titleEl.textContent = jalaliMonths[currentJMonth - 1] + ' ' + currentJYear;
+
+  jalaliWeekDays.forEach(function(d) {
+    const el = document.createElement('div');
+    el.className = 'cal-day-name';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+
+  const g = jalaliToGregorian(currentJYear, currentJMonth, 1);
+  const firstDate = new Date(g[0], g[1] - 1, g[2]);
+
+  let daysInJalaliMonth;
+  if (currentJMonth <= 6) daysInJalaliMonth = 31;
+  else if (currentJMonth <= 11) daysInJalaliMonth = 30;
+  else {
+    const rem = currentJYear % 33;
+    daysInJalaliMonth = [1,5,9,13,17,22,26,30].indexOf(rem) > -1 ? 30 : 29;
+  }
+
+  let startDay = (firstDate.getDay() + 1) % 7;
+
+  for (let i = 0; i < startDay; i++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day empty';
+    grid.appendChild(el);
+  }
+
+  const todayObj = new Date(today);
+  const nowDate = new Date();
+  const nowJ = toJalali(nowDate.getFullYear(), nowDate.getMonth() + 1, nowDate.getDate());
+
+  for (let d = 1; d <= daysInJalaliMonth; d++) {
+    const gr = jalaliToGregorian(currentJYear, currentJMonth, d);
+    const dateObj = new Date(gr[0], gr[1] - 1, gr[2]);
+    const dateStr = dateObj.toISOString().split('T')[0];
+    const pct = getDayPct(dateStr);
+    const isToday = (d === nowJ[2] && currentJMonth === nowJ[1] && currentJYear === nowJ[0]);
+    const isSelected = viewingDate === dateStr;
+
+    let bg = 'var(--bg-item)';
+    const isPast = dateObj < todayObj;
+    const isFuture = dateObj > todayObj;
+
+    if (isFuture) bg = 'var(--bg-item)';
+    else if (pct === 0) bg = isToday ? 'var(--bg-item)' : '#475569';
+    else if (pct >= 80) bg = '#22c55e';
+    else if (pct >= 50) bg = '#f59e0b';
+    else bg = '#ef4444';
+
+    const el = document.createElement('div');
+    el.className = 'cal-day' + (isToday ? ' today' : '') + (isSelected ? ' selected' : '');
+    el.style.background = bg;
+    if (pct >= 50) el.style.color = 'white';
+    else if (isPast && pct > 0) el.style.color = 'white';
+    el.textContent = d;
+    el.title = pct + '%';
+    el.setAttribute('data-date', dateStr);
+    el.onclick = function() { openDayView(dateStr); };
+    grid.appendChild(el);
+  }
+}
+
+// ============ مشاهده یک روز خاص ============
+function openDatePicker() {
+  if (!currentJYear) initCalendarMonth();
+  switchTab('stats');
+}
+
+function openDayView(dateStr) {
+  viewingDate = dateStr;
+  const dateObj = new Date(dateStr);
+  const faDate = dateObj.toLocaleDateString('fa-IR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const j = toJalali(dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate());
+  const jalaliDate = j[2] + ' ' + jalaliMonths[j[1] - 1] + ' ' + j[0];
+
+  const banner = document.getElementById('dayViewBanner');
+  const label = document.getElementById('dayViewLabel');
+  if (banner && label) {
+    banner.style.display = 'flex';
+    label.textContent = '📅 ' + jalaliDate + ' (' + faDate + ')';
+  }
+
+  render();
+  updateAllStats();
+  renderCalendar();
+
+  const noteArea = document.getElementById('noteArea');
+  if (noteArea) noteArea.value = data.notes[dateStr] || '';
+  renderMoods();
+  renderCounters();
+
+  switchTab('home');
+}
+
+function closeDayView() {
+  viewingDate = null;
+  const banner = document.getElementById('dayViewBanner');
+  if (banner) banner.style.display = 'none';
+  render();
+  updateAllStats();
+  if (currentJYear) renderCalendar();
+  const noteArea = document.getElementById('noteArea');
+  if (noteArea) noteArea.value = data.notes[today] || '';
+  renderMoods();
+  renderCounters();
+}
+
+// ============ تقویم سالانه ============
+function renderYearCalendar() {
+  const container = document.getElementById('yearCalendar');
+  if (!container) return;
   container.innerHTML = '';
-  if (data[type].length === 0) {
-    container.innerHTML = '<div class="empty">هنوز چیزی اضافه نکردی</div>';
+  const now = new Date();
+  const nowJ = toJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  const nowJY = nowJ[0];
+
+  for (let m = 1; m <= 12; m++) {
+    const monthDiv = document.createElement('div');
+    monthDiv.className = 'year-month';
+
+    let daysInMonth;
+    if (m <= 6) daysInMonth = 31;
+    else if (m <= 11) daysInMonth = 30;
+    else {
+      const rem = nowJY % 33;
+      daysInMonth = [1,5,9,13,17,22,26,30].indexOf(rem) > -1 ? 30 : 29;
+    }
+
+    const g = jalaliToGregorian(nowJY, m, 1);
+    const firstDate = new Date(g[0], g[1] - 1, g[2]);
+    let startDay = (firstDate.getDay() + 1) % 7;
+
+    let html = '<div class="year-month-name">' + jalaliMonths[m-1] + '</div><div class="year-month-grid">';
+    for (let i = 0; i < startDay; i++) html += '<div></div>';
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const gr = jalaliToGregorian(nowJY, m, d);
+      const dateObj = new Date(gr[0], gr[1] - 1, gr[2]);
+      const dateStr = dateObj.toISOString().split('T')[0];
+      const pct = getDayPct(dateStr);
+
+      let bg = 'var(--bg-item)';
+      if (pct >= 80) bg = '#22c55e';
+      else if (pct >= 50) bg = '#f59e0b';
+      else if (pct > 0) bg = '#ef4444';
+      else if (dateObj < new Date(today)) bg = '#475569';
+
+      html += '<div class="year-day" style="background:' + bg + ';" title="' + d + ' - ' + pct + '%">' + d + '</div>';
+    }
+    html += '</div>';
+    monthDiv.innerHTML = html;
+    container.appendChild(monthDiv);
+  }
+}
+
+// ============ آمار ============
+function renderStats() {
+  if (!currentJYear) initCalendarMonth();
+  renderCalendar();
+
+  const weekChart = document.getElementById('weekChart');
+  if (!weekChart) return;
+  weekChart.innerHTML = '';
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  const daysFromSaturday = (dayOfWeek + 1) % 7;
+
+  let sum = 0, count = 0, bestPct = 0, bestDayName = '—';
+  const days = [];
+
+  for (let i = 0; i < 7; i++) {
+    const diff = i - daysFromSaturday;
+    const d = new Date();
+    d.setDate(d.getDate() + diff);
+    const dateStr = d.toISOString().split('T')[0];
+    const dayName = d.toLocaleDateString('fa-IR', { weekday: 'short' });
+    const pct = diff <= 0 ? getDayPct(dateStr) : 0;
+    days.push({ dateStr: dateStr, dayName: dayName, pct: pct, isFuture: diff > 0, isToday: diff === 0 });
+
+    if (diff < 0) {
+      sum += pct; count++;
+      if (pct > bestPct) { bestPct = pct; bestDayName = d.toLocaleDateString('fa-IR', { weekday: 'long' }); }
+    }
+  }
+
+  days.forEach(function(d) {
+    let color;
+    if (d.isFuture) color = 'var(--bg-item)';
+    else if (d.pct >= 80) color = 'var(--green)';
+    else if (d.pct >= 50) color = 'var(--orange)';
+    else if (d.pct > 0) color = 'var(--red)';
+    else color = 'var(--text-mute)';
+
+    const height = Math.max(d.pct, 3);
+    const wrapper = document.createElement('div');
+    wrapper.className = 'bar-wrapper';
+    wrapper.innerHTML = '<div class="bar-value">' + (d.isFuture ? '—' : d.pct + '%') + '</div>' +
+      '<div class="bar" style="height:' + height + '%; background:' + color + ';"></div>' +
+      '<div class="bar-label">' + d.dayName + (d.isToday ? ' ●' : '') + '</div>';
+    weekChart.appendChild(wrapper);
+  });
+
+  renderMonthChart();
+
+  const avg = count === 0 ? 0 : Math.round(sum / count);
+  const avgEl = document.getElementById('avgPct');
+  if (avgEl) avgEl.textContent = avg + '%';
+  const bdEl = document.getElementById('bestDay');
+  if (bdEl) bdEl.textContent = bestDayName;
+
+  let streak = 0;
+  for (let i = 1; i <= 365; i++) {
+    if (getDayPct(getDateStr(i)) >= 50) streak++;
+    else break;
+  }
+  const sEl = document.getElementById('streak');
+  if (sEl) sEl.textContent = streak;
+
+  renderAchievements(streak, avg);
+}
+
+function renderMonthChart() {
+  const svg = document.getElementById('monthChart');
+  if (!svg) return;
+  svg.innerHTML = '';
+  const points = [];
+  for (let i = 29; i >= 0; i--) points.push(getDayPct(getDateStr(i)));
+  const width = 300, height = 120, padding = 5;
+  const stepX = (width - padding * 2) / 29;
+  const maxY = height - padding * 2;
+  let pathD = '';
+  points.forEach(function(p, i) {
+    const x = padding + i * stepX;
+    const y = height - padding - (p / 100) * maxY;
+    if (i === 0) pathD += 'M ' + x + ' ' + y;
+    else pathD += ' L ' + x + ' ' + y;
+  });
+  let areaD = pathD + ' L ' + (padding + 29 * stepX) + ' ' + (height - padding) + ' L ' + padding + ' ' + (height - padding) + ' Z';
+  const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  bg.setAttribute('x', 0); bg.setAttribute('y', 0);
+  bg.setAttribute('width', width); bg.setAttribute('height', height);
+  bg.setAttribute('fill', 'var(--bg-item)');
+  bg.setAttribute('rx', 6);
+  svg.appendChild(bg);
+  for (let i = 1; i <= 3; i++) {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    const y = padding + (i / 4) * maxY;
+    line.setAttribute('x1', padding); line.setAttribute('y1', y);
+    line.setAttribute('x2', width - padding); line.setAttribute('y2', y);
+    line.setAttribute('stroke', 'var(--border)');
+    line.setAttribute('stroke-width', '0.5');
+    line.setAttribute('stroke-dasharray', '2,2');
+    svg.appendChild(line);
+  }
+  const area = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  area.setAttribute('d', areaD);
+  area.setAttribute('fill', 'var(--primary-dark)');
+  area.setAttribute('opacity', '0.2');
+  svg.appendChild(area);
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', pathD);
+  path.setAttribute('fill', 'none');
+  path.setAttribute('stroke', 'var(--primary)');
+  path.setAttribute('stroke-width', '2');
+  path.setAttribute('stroke-linejoin', 'round');
+  svg.appendChild(path);
+}
+
+function renderYearChart() {
+  const chart = document.getElementById('yearChart');
+  if (!chart) return;
+  chart.innerHTML = '';
+  const now = new Date();
+  const nowJ = toJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  const nowJY = nowJ[0];
+  const nowJM = nowJ[1];
+
+  for (let i = 11; i >= 0; i--) {
+    let m = nowJM - i;
+    let y = nowJY;
+    if (m < 1) { m += 12; y--; }
+
+    let daysInMonth;
+    if (m <= 6) daysInMonth = 31;
+    else if (m <= 11) daysInMonth = 30;
+    else {
+      const rem = y % 33;
+      daysInMonth = [1,5,9,13,17,22,26,30].indexOf(rem) > -1 ? 30 : 29;
+    }
+
+    let sum = 0, count = 0;
+    const todayObj = new Date(today);
+    for (let d = 1; d <= daysInMonth; d++) {
+      const gr = jalaliToGregorian(y, m, d);
+      const dateObj = new Date(gr[0], gr[1] - 1, gr[2]);
+      if (dateObj > todayObj) continue;
+      const dateStr = dateObj.toISOString().split('T')[0];
+      sum += getDayPct(dateStr);
+      count++;
+    }
+    const avg = count === 0 ? 0 : Math.round(sum / count);
+
+    let color;
+    if (avg >= 80) color = 'var(--green)';
+    else if (avg >= 50) color = 'var(--orange)';
+    else if (avg > 0) color = 'var(--red)';
+    else color = 'var(--text-mute)';
+
+    const height = Math.max(avg, 3);
+    const wrapper = document.createElement('div');
+    wrapper.className = 'bar-wrapper';
+    wrapper.innerHTML = '<div class="bar-value" style="font-size:9px;">' + avg + '%</div>' +
+      '<div class="bar" style="height:' + height + '%; background:' + color + ';"></div>' +
+      '<div class="bar-label" style="font-size:9px;">' + jalaliMonths[m-1].substring(0,3) + '</div>';
+    chart.appendChild(wrapper);
+  }
+}
+
+// ============ دستاوردها ============
+const achievementsList = [
+  { id: 'first_day', icon: '🌱', title: 'شروع', desc: 'اولین روز', check: function() { return Object.keys(data.history).length >= 1; } },
+  { id: 'perfect_day', icon: '⭐', title: 'روز کامل', desc: '۱۰۰٪', check: function() {
+    return Object.values(data.history).some(function(d) {
+      const t = data.habits.length + data.tasks.length + data.avoids.length;
+      if (t === 0) return false;
+      const done = (d.habits ? d.habits.length : 0) + (d.tasks ? d.tasks.length : 0) + (d.avoids ? d.avoids.length : 0);
+      return done === t;
+    });
+  }},
+  { id: 'streak_3', icon: '🔥', title: 'سه‌گانه', desc: '۳ روز', check: function(s) { return s >= 3; } },
+  { id: 'streak_7', icon: '💪', title: 'هفت‌روز', desc: '۷ روز', check: function(s) { return s >= 7; } },
+  { id: 'streak_30', icon: '🏆', title: 'یک ماه', desc: '۳۰ روز', check: function(s) { return s >= 30; } },
+  { id: 'streak_100', icon: '👑', title: 'صدروز', desc: '۱۰۰ روز', check: function(s) { return s >= 100; } },
+  { id: 'habits_5', icon: '✅', title: 'پنج عادت', desc: '۵ عادت', check: function() { return data.habits.length >= 5; } },
+  { id: 'habits_10', icon: '🎯', title: 'ده عادت', desc: '۱۰ عادت', check: function() { return data.habits.length >= 10; } },
+  { id: 'avoids_3', icon: '🛡️', title: 'محافظ', desc: '۳ پرهیز', check: function() { return data.avoids.length >= 3; } },
+  { id: 'dreams_5', icon: '💫', title: 'رؤیاپرداز', desc: '۵ آرزو', check: function() {
+    return (data.dreams.today.length + data.dreams.week.length + data.dreams.month.length + data.dreams.year.length) >= 5;
+  }},
+  { id: 'dream_done', icon: '🎉', title: 'محقق', desc: 'یک آرزو', check: function() {
+    return Object.values(data.dreams).some(function(arr) { return arr.some(function(d) { return d.done; }); });
+  }},
+  { id: 'note_writer', icon: '📝', title: 'نویسنده', desc: '۵ یادداشت', check: function() {
+    return Object.keys(data.notes).filter(function(k) { return data.notes[k] && data.notes[k].trim(); }).length >= 5;
+  }},
+  { id: 'focus_60', icon: '⏱️', title: 'متمرکز', desc: '۶۰ دقیقه', check: function() { return data.focusMinutes >= 60; } },
+  { id: 'focus_300', icon: '🧠', title: 'ذهن قوی', desc: '۳۰۰ دقیقه', check: function() { return data.focusMinutes >= 300; } },
+  { id: 'points_500', icon: '💎', title: 'پنج‌صد', desc: '۵۰۰ امتیاز', check: function() { return data.points >= 500; } },
+  { id: 'points_2000', icon: '💠', title: 'دوهزار', desc: '۲۰۰۰ امتیاز', check: function() { return data.points >= 2000; } },
+  { id: 'water_8', icon: '💧', title: 'آب‌رسان', desc: '۸ لیوان آب', check: function() { return (data.water[today] || 0) >= 8; } },
+  { id: 'mood_7', icon: '🌡️', title: 'خودآگاه', desc: '۷ روز حال ثبت', check: function() { return Object.keys(data.moods).length >= 7; } }
+];
+
+function renderAchievements(streak, avg) {
+  const grid = document.getElementById('achievementsGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  achievementsList.forEach(function(ach) {
+    let unlocked = false;
+    try { unlocked = ach.check(streak, avg); } catch(e) { unlocked = false; }
+    const div = document.createElement('div');
+    div.className = 'achievement' + (unlocked ? ' unlocked' : '');
+    div.innerHTML = '<div class="ach-icon">' + ach.icon + '</div>' +
+      '<div class="ach-title">' + ach.title + '</div>' +
+      '<div class="ach-desc">' + ach.desc + '</div>';
+    grid.appendChild(div);
+  });
+}
+
+// ============ تحلیل ============
+function renderAnalysis() {
+  const box = document.getElementById('analysisBox');
+  if (!box) return;
+  box.innerHTML = '';
+  const weekPcts = [];
+  for (let i = 1; i <= 7; i++) weekPcts.push(getDayPct(getDateStr(i)));
+  const weekAvg = weekPcts.reduce(function(a, b) { return a + b; }, 0) / 7;
+
+  let bestHabit = null, bestHabitScore = -1;
+  data.habits.forEach(function(h, i) {
+    let score = 0;
+    for (let d = 0; d < 30; d++) {
+      const dateStr = getDateStr(d);
+      if (data.history[dateStr] && data.history[dateStr].habits && data.history[dateStr].habits.indexOf(i) > -1) score++;
+    }
+    if (score > bestHabitScore) { bestHabitScore = score; bestHabit = h.text; }
+  });
+
+  let worstHabit = null, worstHabitScore = 999;
+  data.habits.forEach(function(h, i) {
+    let score = 0;
+    for (let d = 0; d < 30; d++) {
+      const dateStr = getDateStr(d);
+      if (data.history[dateStr] && data.history[dateStr].habits && data.history[dateStr].habits.indexOf(i) > -1) score++;
+    }
+    if (score < worstHabitScore) { worstHabitScore = score; worstHabit = h.text; }
+  });
+
+  let mainText = '', mainClass = 'analysis-info';
+  if (weekAvg >= 80) { mainText = '🌟 عملکرد فوق‌العاده‌ای داری!'; mainClass = 'analysis-good'; }
+  else if (weekAvg >= 60) { mainText = '👍 خوب پیش می‌ری. با کمی تلاش بیشتر، عالی می‌شی.'; }
+  else if (weekAvg >= 40) { mainText = '💪 در مسیری. سعی کن یک عادت رو تقویت کنی.'; mainClass = 'analysis-tip'; }
+  else if (weekAvg > 0) { mainText = '⚠️ میانگینت پایین‌تر از حد انتظاره.'; mainClass = 'analysis-warn'; }
+  else { mainText = '🌱 هنوز داده کافی نداری.'; }
+
+  box.innerHTML = '<div class="analysis-box ' + mainClass + '"><div class="analysis-title">📊 تحلیل کلی</div><div class="analysis-text">' + mainText + '</div></div>';
+  if (bestHabit) box.innerHTML += '<div class="analysis-box analysis-good"><div class="analysis-title">🏆 بهترین عادت</div><div class="analysis-text">«' + bestHabit + '» — ' + bestHabitScore + ' بار در ۳۰ روز</div></div>';
+  if (worstHabit && data.habits.length > 1) box.innerHTML += '<div class="analysis-box analysis-warn"><div class="analysis-title">📉 ضعیف‌ترین عادت</div><div class="analysis-text">«' + worstHabit + '» — فقط ' + worstHabitScore + ' بار</div></div>';
+}
+
+// ============ پیشنهاد هوشمند ============
+const habitSuggestions = [
+  { text: '۱۵ دقیقه پیاده‌روی', cat: 'ورزشی', reason: 'برای شروع ورزش' },
+  { text: '۵ دقیقه مدیتیشن', cat: 'معنوی', reason: 'برای آرامش ذهن' },
+  { text: 'نوشیدن ۸ لیوان آب', cat: 'سلامت', reason: 'برای سلامت بدن' },
+  { text: '۱۰ دقیقه مطالعه', cat: 'تحصیلی', reason: 'برای رشد دانش' },
+  { text: 'یادداشت ۳ نعمت', cat: 'معنوی', reason: 'برای شکرگزاری' },
+  { text: '۲۰ دقیقه ورزش', cat: 'ورزشی', reason: 'برای تناسب اندام' },
+  { text: 'تمرین زبان', cat: 'مهارت', reason: 'برای یادگیری' },
+  { text: 'تماس با خانواده', cat: 'خانواده', reason: 'برای ارتباط' },
+  { text: 'خواب قبل از ۲۳', cat: 'سلامت', reason: 'برای انرژی فردا' },
+  { text: 'نوشتن یک صفحه', cat: 'مهارت', reason: 'برای خلاقیت' }
+];
+
+function renderSmartSuggest() {
+  const box = document.getElementById('smartSuggestBox');
+  if (!box) return;
+  box.innerHTML = '';
+  const existingTexts = data.habits.map(function(h) { return h.text.toLowerCase(); });
+  const suggestions = habitSuggestions.filter(function(s) { return existingTexts.indexOf(s.text.toLowerCase()) === -1; });
+
+  if (suggestions.length === 0) {
+    box.innerHTML = '<div class="empty">همه پیشنهادها رو داری! عالیه 👏</div>';
     return;
   }
 
-  const hasTime = type !== 'avoids'; // پرهیزها زمان ندارن
+  const picked = suggestions.slice(0, 3);
+  picked.forEach(function(s) {
+    box.innerHTML += '<div class="analysis-box analysis-tip">' +
+      '<div class="analysis-title">' + s.text + '</div>' +
+      '<div class="analysis-text">دسته: ' + s.cat + ' — ' + s.reason + '</div>' +
+      '<button class="setting-btn small success" style="margin-top:8px;" onclick="addSuggestedHabit(\'' + s.text + '\', \'' + s.cat + '\')">افزودن</button>' +
+      '</div>';
+  });
+}
 
-  data[type].forEach((item, i) => {
-    const done = data.history[today] && data.history[today][type] && data.history[today][type].includes(i);
+function addSuggestedHabit(text, cat) {
+  data.habits.push({ text: text, time: '', cat: cat, priority: 0, days: [], goal: 0 });
+  save();
+  render();
+  renderSmartSuggest();
+  alert('✅ عادت اضافه شد!');
+}
+
+// ============ پیش‌بینی موفقیت ============
+function renderPrediction() {
+  const box = document.getElementById('predictionBox');
+  if (!box) return;
+  box.innerHTML = '';
+
+  const last7 = [];
+  for (let i = 0; i < 7; i++) last7.push(getDayPct(getDateStr(i)));
+  const avg = last7.reduce(function(a, b) { return a + b; }, 0) / 7;
+  const todayPct = getDayPct(today);
+  const basePct = Math.round((avg * 0.6) + (todayPct * 0.4));
+
+  let predictionText = '', predictionClass = '';
+  if (basePct >= 80) { predictionText = '🌟 خیلی محتمله فردا موفق باشی!'; predictionClass = 'analysis-good'; }
+  else if (basePct >= 60) { predictionText = '👍 احتمال زیاد فردا هم خوب پیش بری.'; predictionClass = 'analysis-info'; }
+  else if (basePct >= 40) { predictionText = '💪 با کمی تلاش، فردا بهتر می‌شی.'; predictionClass = 'analysis-tip'; }
+  else { predictionText = '⚠️ سعی کن فردا با یک عادت کوچک شروع کنی.'; predictionClass = 'analysis-warn'; }
+
+  box.innerHTML = '<div class="analysis-box ' + predictionClass + '" style="text-align:center;">' +
+    '<div style="font-size:48px; color:var(--primary); font-weight:bold;">' + basePct + '%</div>' +
+    '<div style="font-size:12px; color:var(--text-dim); margin:8px 0;">احتمال موفقیت فردا</div>' +
+    '<div class="analysis-text" style="margin-top:10px;">' + predictionText + '</div>' +
+    '</div>';
+}
+
+function renderCompare() {
+  const box = document.getElementById('compareBox');
+  if (!box) return;
+  let thisWeek = 0, lastWeek = 0;
+  for (let i = 0; i < 7; i++) thisWeek += getDayPct(getDateStr(i));
+  for (let i = 7; i < 14; i++) lastWeek += getDayPct(getDateStr(i));
+  thisWeek = Math.round(thisWeek / 7);
+  lastWeek = Math.round(lastWeek / 7);
+  const diff = thisWeek - lastWeek;
+  let color = 'var(--text-dim)', arrow = '➡️', text = 'مشابه هفته قبل';
+  if (diff > 5) { color = 'var(--green)'; arrow = '⬆️'; text = 'بهتر'; }
+  else if (diff < -5) { color = 'var(--red)'; arrow = '⬇️'; text = 'ضعیف‌تر'; }
+  box.innerHTML = '<div style="display:flex; justify-content:space-around; text-align:center;">' +
+    '<div><div style="font-size:24px; color:var(--primary); font-weight:bold;">' + thisWeek + '%</div><div style="font-size:11px; color:var(--text-dim);">این هفته</div></div>' +
+    '<div style="font-size:30px; color:' + color + ';">' + arrow + '</div>' +
+    '<div><div style="font-size:24px; color:var(--text-dim); font-weight:bold;">' + lastWeek + '%</div><div style="font-size:11px; color:var(--text-dim);">قبل</div></div>' +
+    '</div><div style="text-align:center; margin-top:12px; color:' + color + '; font-weight:bold;">' + text + '</div>';
+}
+
+function renderMonthCompare() {
+  const box = document.getElementById('monthCompareBox');
+  if (!box) return;
+  box.innerHTML = '';
+  const now = new Date();
+  const nowJ = toJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  const months = [];
+  for (let i = 0; i < 3; i++) {
+    let m = nowJ[1] - i;
+    let y = nowJ[0];
+    if (m < 1) { m += 12; y--; }
+    months.push({ y: y, m: m });
+  }
+  const results = months.map(function(mm) {
+    let daysInMonth = mm.m <= 6 ? 31 : (mm.m <= 11 ? 30 : 29);
+    let sum = 0, count = 0;
+    const todayObj = new Date(today);
+    for (let d = 1; d <= daysInMonth; d++) {
+      const gr = jalaliToGregorian(mm.y, mm.m, d);
+      const dateObj = new Date(gr[0], gr[1] - 1, gr[2]);
+      if (dateObj > todayObj) continue;
+      const dateStr = dateObj.toISOString().split('T')[0];
+      sum += getDayPct(dateStr);
+      count++;
+    }
+    return { name: jalaliMonths[mm.m-1], avg: count === 0 ? 0 : Math.round(sum / count) };
+  });
+  results.forEach(function(r, i) {
+    let color = r.avg >= 80 ? 'var(--green)' : r.avg >= 50 ? 'var(--orange)' : r.avg > 0 ? 'var(--red)' : 'var(--text-mute)';
+    box.innerHTML += '<div style="margin-bottom:10px;">' +
+      '<div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;">' +
+      '<span>' + r.name + (i === 0 ? ' (جاری)' : '') + '</span>' +
+      '<span style="color:' + color + '; font-weight:bold;">' + r.avg + '%</span>' +
+      '</div>' +
+      '<div style="width:100%; height:8px; background:var(--bg-dark); border-radius:4px; overflow:hidden;">' +
+      '<div style="width:' + r.avg + '%; height:100%; background:' + color + ';"></div>' +
+      '</div></div>';
+  });
+}
+
+function renderRecords() {
+  const box = document.getElementById('recordsBox');
+  if (!box) return;
+  box.innerHTML = '';
+  let maxStreak = 0, currentStreak = 0;
+  for (let i = 1; i <= 365; i++) {
+    const pct = getDayPct(getDateStr(i));
+    if (pct >= 50) { currentStreak++; maxStreak = Math.max(maxStreak, currentStreak); }
+    else currentStreak = 0;
+  }
+  let currentStreakToday = 0;
+  for (let i = 0; i < 365; i++) {
+    if (getDayPct(getDateStr(i)) >= 50) currentStreakToday++;
+    else break;
+  }
+
+  let bestDay = { pct: 0, date: '—' };
+  Object.keys(data.history).forEach(function(dateStr) {
+    const pct = getDayPct(dateStr);
+    if (pct > bestDay.pct) bestDay = { pct: pct, date: dateStr };
+  });
+
+  const perfectDays = Object.values(data.history).filter(function(d) {
+    const t = data.habits.length + data.tasks.length + data.avoids.length;
+    if (t === 0) return false;
+    const done = (d.habits ? d.habits.length : 0) + (d.tasks ? d.tasks.length : 0) + (d.avoids ? d.avoids.length : 0);
+    return done === t;
+  }).length;
+
+  box.innerHTML = '<div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">' +
+    '<div class="analysis-box" style="text-align:center; margin:0;"><div style="font-size:28px; color:var(--orange); font-weight:bold;">🔥 ' + toFa(maxStreak) + '</div><div style="font-size:11px; color:var(--text-dim); margin-top:4px;">بیشترین روز متوالی</div></div>' +
+    '<div class="analysis-box" style="text-align:center; margin:0;"><div style="font-size:28px; color:var(--green); font-weight:bold;">⚡ ' + toFa(currentStreakToday) + '</div><div style="font-size:11px; color:var(--text-dim); margin-top:4px;">روز متوالی فعلی</div></div>' +
+    '<div class="analysis-box" style="text-align:center; margin:0;"><div style="font-size:28px; color:var(--purple); font-weight:bold;">⭐ ' + toFa(perfectDays) + '</div><div style="font-size:11px; color:var(--text-dim); margin-top:4px;">روز کامل</div></div>' +
+    '<div class="analysis-box" style="text-align:center; margin:0;"><div style="font-size:28px; color:var(--primary); font-weight:bold;">⏱️ ' + toFa(data.focusMinutes) + '</div><div style="font-size:11px; color:var(--text-dim); margin-top:4px;">دقیقه تمرکز</div></div>' +
+    '</div>' +
+    '<div class="analysis-box analysis-good" style="margin-top:10px;"><div class="analysis-title">🏅 بهترین روز</div><div class="analysis-text">' + bestDay.pct + '٪ در تاریخ ' + (bestDay.date !== '—' ? new Date(bestDay.date).toLocaleDateString('fa-IR') : '—') + '</div></div>';
+}
+
+// ============ تایمر ============
+let timerInterval = null;
+let timerSeconds = 25 * 60;
+let timerRunning = false;
+let currentTimerMinutes = 25;
+
+function setTimer(minutes) {
+  if (timerRunning) { alert('اول تایمر رو متوقف کن'); return; }
+  timerSeconds = minutes * 60;
+  currentTimerMinutes = minutes;
+  updateTimerDisplay();
+}
+
+function setCustomTimer() {
+  if (timerRunning) { alert('اول تایمر رو متوقف کن'); return; }
+  const input = prompt('چند دقیقه؟ (۱ تا ۱۸۰)', '30');
+  if (!input) return;
+  const min = parseInt(input);
+  if (isNaN(min) || min < 1 || min > 180) { alert('❌ عدد بین ۱ تا ۱۸۰'); return; }
+  timerSeconds = min * 60;
+  currentTimerMinutes = min;
+  updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+  const min = Math.floor(timerSeconds / 60);
+  const sec = timerSeconds % 60;
+  const el = document.getElementById('timerDisplay');
+  if (el) el.textContent = toFa(String(min).padStart(2, '0')) + ':' + toFa(String(sec).padStart(2, '0'));
+}
+
+function startTimer() {
+  if (timerRunning) return;
+  timerRunning = true;
+  document.getElementById('timerStartBtn').style.display = 'none';
+  document.getElementById('timerPauseBtn').style.display = 'inline-block';
+  timerInterval = setInterval(function() {
+    if (timerSeconds <= 0) {
+      clearInterval(timerInterval);
+      timerRunning = false;
+      document.getElementById('timerStartBtn').style.display = 'inline-block';
+      document.getElementById('timerPauseBtn').style.display = 'none';
+      data.focusMinutes += currentTimerMinutes;
+      addPoints(currentTimerMinutes);
+      save();
+      renderTimerStats();
+      playSequence([523, 659, 784], 0.1, 0.1);
+      alert('🎉 تایمر تموم شد!');
+      timerSeconds = currentTimerMinutes * 60;
+      updateTimerDisplay();
+      return;
+    }
+    timerSeconds--;
+    updateTimerDisplay();
+  }, 1000);
+}
+
+function pauseTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  timerRunning = false;
+  document.getElementById('timerStartBtn').style.display = 'inline-block';
+  document.getElementById('timerPauseBtn').style.display = 'none';
+}
+
+function resetTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  timerRunning = false;
+  timerSeconds = currentTimerMinutes * 60;
+  updateTimerDisplay();
+  document.getElementById('timerStartBtn').style.display = 'inline-block';
+  document.getElementById('timerPauseBtn').style.display = 'none';
+}
+
+function renderTimerStats() {
+  const el = document.getElementById('totalFocusMin');
+  if (el) el.textContent = data.focusMinutes;
+}
+
+// ============ یادداشت ============
+const noteAreaEl = document.getElementById('noteArea');
+const noteInfoEl = document.getElementById('noteInfo');
+
+if (noteAreaEl) {
+  noteAreaEl.addEventListener('input', function() {
+    if (isViewingPast()) return;
+    if (noteInfoEl) noteInfoEl.textContent = '⏳ در حال ذخیره...';
+    clearTimeout(window._noteTimeout);
+    window._noteTimeout = setTimeout(function() {
+      data.notes[today] = noteAreaEl.value;
+      save();
+      if (noteInfoEl) noteInfoEl.textContent = '✅ ذخیره شد';
+    }, 800);
+  });
+}
+
+function renderNoteTags() {
+  const container = document.getElementById('noteTagsBar');
+  if (!container) return;
+  container.innerHTML = '';
+  const allTags = [];
+  Object.values(data.noteTags).forEach(function(tags) {
+    if (Array.isArray(tags)) tags.forEach(function(t) { if (allTags.indexOf(t) === -1) allTags.push(t); });
+  });
+  const allChip = document.createElement('div');
+  allChip.className = 'tag-chip' + (activeNoteTag === '' ? ' active' : '');
+  allChip.textContent = 'همه';
+  allChip.onclick = function() { activeNoteTag = ''; renderNoteTags(); searchNotes(); };
+  container.appendChild(allChip);
+  allTags.forEach(function(tag) {
+    const chip = document.createElement('div');
+    chip.className = 'tag-chip' + (activeNoteTag === tag ? ' active' : '');
+    chip.textContent = tag;
+    chip.onclick = function() { activeNoteTag = tag; renderNoteTags(); searchNotes(); };
+    container.appendChild(chip);
+  });
+}
+
+function saveNoteTags() {
+  if (isViewingPast()) return;
+  const val = document.getElementById('tagInput').value.trim();
+  if (!val) delete data.noteTags[today];
+  else data.noteTags[today] = val.split(',').map(function(t) { return t.trim(); }).filter(function(t) { return t; });
+  document.getElementById('tagInput').value = '';
+  save();
+  renderNoteTags();
+  alert('✅ برچسب ذخیره شد');
+}
+
+function togglePinNote() {
+  const idx = data.pinnedNotes.indexOf(today);
+  if (idx > -1) {
+    data.pinnedNotes.splice(idx, 1);
+    alert('📌 پین برداشته شد');
+  } else {
+    data.pinnedNotes.push(today);
+    alert('📌 پین شد');
+  }
+  save();
+}
+
+function searchNotes() {
+  const query = (document.getElementById('noteSearch') && document.getElementById('noteSearch').value || '').trim().toLowerCase();
+  const container = document.getElementById('searchResults');
+  if (!container) return;
+  container.innerHTML = '';
+  let results = [];
+
+  Object.keys(data.notes).forEach(function(dateStr) {
+    const text = data.notes[dateStr];
+    if (!text || !text.trim()) return;
+    if (activeNoteTag) {
+      const tags = data.noteTags[dateStr] || [];
+      if (tags.indexOf(activeNoteTag) === -1) return;
+    }
+    if (query && text.toLowerCase().indexOf(query) === -1) return;
+    results.push({ type: 'note', date: dateStr, text: text, tags: data.noteTags[dateStr] || [] });
+  });
+
+  if (query) {
+    data.habits.forEach(function(h) {
+      if (h.text.toLowerCase().indexOf(query) > -1) results.push({ type: 'habit', text: h.text });
+    });
+    data.tasks.forEach(function(t) {
+      if (t.text.toLowerCase().indexOf(query) > -1) results.push({ type: 'task', text: t.text });
+    });
+  }
+
+  if (results.length === 0) {
+    container.innerHTML = '<div class="empty">نتیجه‌ای پیدا نشد</div>';
+    return;
+  }
+
+  const typeLabels = { note: '📝 یادداشت', habit: '✅ عادت', task: '📋 کار', dream: '💫 آرزو' };
+
+  results.slice(0, 30).forEach(function(r) {
     const div = document.createElement('div');
-    div.className = 'item' + (done ? ' done' : '');
+    div.className = 'note-result';
 
-    let timeBadge = '';
-    if (hasTime && item.time) {
-      timeBadge = `<span class="time-badge">🕐 ${item.time}</span>`;
+    if (r.type === 'note') {
+      const dateObj = new Date(r.date);
+      const faDate = dateObj.toLocaleDateString('fa-IR', { year: 'numeric', month: '2-digit', day: '2-digit' });
+      const isPinned = data.pinnedNotes.indexOf(r.date) > -1;
+      let displayText = r.text;
+      if (query) {
+        const idx = displayText.toLowerCase().indexOf(query);
+        if (idx > -1) {
+          displayText = displayText.substring(0, idx) + '<mark>' + displayText.substring(idx, idx + query.length) + '</mark>' + displayText.substring(idx + query.length);
+        }
+      } else {
+        displayText = displayText.substring(0, 100) + (displayText.length > 100 ? '...' : '');
+      }
+      const tagsHtml = r.tags.map(function(t) { return '<span class="tag-item">' + t + '</span>'; }).join('');
+      div.innerHTML = (isPinned ? '<span class="pin-icon">📌</span>' : '') +
+        '<div class="note-result-date">📅 ' + faDate + '</div>' +
+        '<div class="note-result-text">' + displayText + '</div>' +
+        '<div>' + tagsHtml + '</div>';
+    } else {
+      div.innerHTML = '<div class="note-result-date">' + typeLabels[r.type] + '</div><div class="note-result-text">' + r.text + '</div>';
     }
-
-    let editBtn = '';
-    if (hasTime) {
-      editBtn = `<button class="edit-btn" onclick="startEdit('${type}', ${i})">✏️ ویرایش</button>`;
-    }
-
-    div.innerHTML = `
-      <input type="checkbox" ${done ? 'checked' : ''} onchange="toggleItem('${type}', ${i})">
-      <span class="text">${item.text}</span>
-      ${timeBadge}
-      ${editBtn}
-      <button class="delete-btn" onclick="deleteItem('${type}', ${i})">حذف</button>
-    `;
-
-    // اگر این آیتم در حال ویرایشه، پنل ویرایش رو نشون بده
-    if (editing[type] === i) {
-      const panel = document.createElement('div');
-      panel.className = 'edit-panel';
-      panel.innerHTML = `
-        <input type="text" id="editText_${type}_${i}" value="${item.text}">
-        ${hasTime ? `<input type="time" id="editTime_${type}_${i}" value="${item.time || ''}">` : ''}
-        <button class="save-btn" onclick="saveEdit('${type}', ${i})">ذخیره</button>
-        <button class="cancel-btn" onclick="cancelEdit('${type}')">انصراف</button>
-      `;
-      div.appendChild(panel);
-    }
-
     container.appendChild(div);
   });
 }
 
-function render() {
-  renderList('habits', 'habitsList');
-  renderList('tasks', 'tasksList');
-  renderList('avoids', 'avoidList');
-  updateAllStats();
-  renderHistory();
+// ============ دفتر خاطرات + PDF ============
+function renderDiary() {
+  const container = document.getElementById('diaryList');
+  if (!container) return;
+  container.innerHTML = '';
+  const dates = Object.keys(data.notes).filter(function(d) { return data.notes[d] && data.notes[d].trim(); }).sort(function(a, b) { return b.localeCompare(a); });
+  if (dates.length === 0) {
+    container.innerHTML = '<div class="empty">هنوز خاطره‌ای ثبت نکردی</div>';
+    return;
+  }
+  dates.slice(0, 50).forEach(function(dateStr) {
+    const text = data.notes[dateStr];
+    const div = document.createElement('div');
+    div.className = 'diary-card';
+    const dateObj = new Date(dateStr);
+    const faDate = dateObj.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+    const j = toJalali(dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate());
+    const jalaliDate = j[2] + ' ' + jalaliMonths[j[1] - 1] + ' ' + j[0];
+    const isPinned = data.pinnedNotes.indexOf(dateStr) > -1;
+    div.innerHTML = '<div class="diary-date">' + (isPinned ? '📌 ' : '') + '📅 ' + jalaliDate + ' — ' + faDate + '</div>' +
+      '<div class="diary-text">' + text.replace(/\n/g, '<br>') + '</div>';
+    container.appendChild(div);
+  });
 }
 
+function downloadDiaryPDF() {
+  const dates = Object.keys(data.notes).filter(function(d) { return data.notes[d] && data.notes[d].trim(); }).sort();
+  if (dates.length === 0) { alert('❌ هنوز خاطره‌ای ثبت نکردی'); return; }
+
+  const todayFa = new Date().toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+  let totalWords = 0;
+  dates.forEach(function(d) { totalWords += (data.notes[d] || '').split(/\s+/).filter(function(w) { return w; }).length; });
+
+  let html = '<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><title>دفتر خاطرات من</title>' +
+    '<style>' +
+    'body { font-family: Tahoma, sans-serif; padding: 40px; line-height: 2; direction: rtl; background: #f8f4ff; color: #1e1b4b; margin: 0; }' +
+    '.cover { text-align: center; padding: 60px 20px; page-break-after: always; background: linear-gradient(135deg, #6d28d9, #4c1d95); color: white; border-radius: 20px; margin-bottom: 30px; }' +
+    '.cover h1 { font-size: 48px; margin: 0 0 20px 0; color: #fbbf24; }' +
+    '.cover .brand { font-size: 24px; letter-spacing: 8px; color: #a78bfa; margin-bottom: 30px; }' +
+    '.cover .stats-box { background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px; margin: 20px 0; display: inline-block; }' +
+    '.cover .stat-item { display: inline-block; margin: 0 20px; font-size: 14px; }' +
+    '.cover .stat-num { display: block; font-size: 28px; font-weight: bold; color: #fbbf24; }' +
+    '.entry { background: white; border-right: 5px solid #6d28d9; border-radius: 12px; padding: 20px 25px; margin-bottom: 25px; page-break-inside: avoid; box-shadow: 0 4px 15px rgba(109,40,217,0.1); }' +
+    '.entry-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #ddd; }' +
+    '.entry-num { background: #6d28d9; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }' +
+    '.entry-date { color: #6d28d9; font-weight: bold; font-size: 15px; }' +
+    '.entry-text { color: #333; font-size: 14px; white-space: pre-wrap; }' +
+    '.footer { text-align: center; color: #999; font-size: 12px; margin-top: 50px; padding: 20px; border-top: 2px solid #ddd; }' +
+    '</style></head><body>' +
+    '<div class="cover"><div class="brand">FATEH</div><h1>📖 دفتر خاطرات من</h1>' +
+    '<div style="font-size:16px; opacity:0.9;">به نام پروردگار</div>' +
+    '<div class="stats-box"><div class="stat-item">📅 <span class="stat-num">' + toFa(dates.length) + '</span> خاطره</div>' +
+    '<div class="stat-item">📝 <span class="stat-num">' + toFa(totalWords) + '</span> کلمه</div></div>' +
+    '<div style="font-size:14px; opacity:0.8; margin-top:30px;">📅 تاریخ چاپ: ' + todayFa + '</div></div>';
+
+  dates.forEach(function(dateStr, index) {
+    const text = data.notes[dateStr];
+    const dateObj = new Date(dateStr);
+    const faDate = dateObj.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+    const j = toJalali(dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate());
+    const jalaliDate = j[2] + ' ' + jalaliMonths[j[1] - 1] + ' ' + j[0];
+    const isPinned = data.pinnedNotes.indexOf(dateStr) > -1;
+    const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    html += '<div class="entry"><div class="entry-header"><div>' +
+      (isPinned ? '📌 ' : '') + '<span class="entry-date">📅 ' + jalaliDate + '</span>' +
+      '<div style="color:#999; font-size:12px;">' + faDate + '</div></div>' +
+      '<span class="entry-num">#' + toFa(index + 1) + '</span></div>' +
+      '<div class="entry-text">' + escapedText + '</div></div>';
+  });
+
+  html += '<div class="footer">💜 ساخته شده با اپ عادت‌های من — FATEH</div></body></html>';
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'دفتر-خاطرات-' + today + '.html';
+  a.click();
+  URL.revokeObjectURL(url);
+
+  setTimeout(function() {
+    alert('✅ فایل دانلود شد!\n\nبرای PDF:\n۱. فایل رو در Chrome باز کن\n۲. منوی سه‌نقطه → Print\n۳. Save as PDF');
+  }, 500);
+}
+
+// ============ چالش ============
+const challenges = [
+  'امروز به ۳ نفر لبخند بزن',
+  'یک کار که همیشه عقب میندازی رو انجام بده',
+  'به مدت ۱۰ دقیقه سکوت کن و نفس عمیق بکش',
+  'یک صفحه از یک کتاب بخون',
+  'به یک دوست قدیمی پیام بده',
+  'امروز بدون گوشی ۱ ساعت بگذرون',
+  'یک لیوان آب بیشتر از همیشه بخور',
+  'یک چیز که مدتها میخواستی یاد بگیری رو شروع کن',
+  'امروز همه کارها رو با دقت و تمرکز انجام بده',
+  'به خودت یک هدیه کوچیک بده',
+  'امروز هر چیزی که میخوری رو یادداشت کن',
+  'با یکی از اعضای خانواده وقت بگذرون',
+  'امروز بدون شکایت بگذرون',
+  'یک کار خیر کوچیک انجام بده',
+  '۱۰ دقیقه ورزش کن',
+  'یک چیز جدید یاد بگیر',
+  'امروز زودتر بخواب',
+  'به آینده‌ت ۵ دقیقه فکر کن و برنامه بنویس',
+  'امروز از یک چیز که داری شکرگزاری کن',
+  'یک عادت بد رو امروز ترک کن'
+];
+
+function getNewChallenge() {
+  if (isViewingPast()) { alert('در حالت مشاهده گذشته نمی‌تونی چالش بگیری'); return; }
+  const challenge = challenges[Math.floor(Math.random() * challenges.length)];
+  data.currentChallenge = challenge;
+  data.lastChallengeDate = today;
+  save();
+  const el = document.getElementById('challengeText');
+  if (el) el.textContent = challenge;
+  addPoints(5);
+}
+
+// ============ حال و احوال ============
+const moods = [
+  { emoji: '😄', label: 'عالی', value: 5 },
+  { emoji: '😊', label: 'خوب', value: 4 },
+  { emoji: '😐', label: 'معمولی', value: 3 },
+  { emoji: '😔', label: 'بد', value: 2 },
+  { emoji: '😢', label: 'خیلی بد', value: 1 }
+];
+
+function renderMoods() {
+  const grid = document.getElementById('moodGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const targetDate = getTargetDate();
+  const currentMood = data.moods[targetDate];
+  const readOnly = isViewingPast();
+
+  moods.forEach(function(m) {
+    const btn = document.createElement('div');
+    btn.className = 'mood-btn' + (currentMood === m.value ? ' selected' : '');
+    btn.innerHTML = m.emoji;
+    btn.title = m.label;
+    if (!readOnly) {
+      btn.onclick = function() {
+        data.moods[today] = m.value;
+        save();
+        renderMoods();
+        if (m.value >= 4) addPoints(3);
+      };
+    }
+    grid.appendChild(btn);
+  });
+
+  const history = document.getElementById('moodHistory');
+  if (!history) return;
+  history.innerHTML = '';
+  for (let i = 6; i >= 0; i--) {
+    const dateStr = getDateStr(i);
+    const moodVal = data.moods[dateStr];
+    const mood = moods.filter(function(m) { return m.value === moodVal; })[0];
+    const div = document.createElement('div');
+    div.className = 'mood-day';
+    const dateObj = new Date(dateStr);
+    const dayName = dateObj.toLocaleDateString('fa-IR', { weekday: 'short' });
+    div.innerHTML = '<div>' + (mood ? mood.emoji : '—') + '</div><div class="mood-day-date">' + dayName + '</div>';
+    history.appendChild(div);
+  }
+}
+
+function saveSelfMessage() {
+  const el = document.getElementById('selfMessage');
+  if (el) data.selfMessage = el.value;
+  save();
+}
+
+// ============ شمارنده‌ها ============
+function saveCupSize() {
+  const el = document.getElementById('cupSizeSelect');
+  if (el) data.cupSize = parseInt(el.value) || 250;
+  save();
+  renderCounters();
+}
+
+function changeWater(delta) {
+  if (isViewingPast()) return;
+  const current = data.water[today] || 0;
+  const newVal = Math.max(0, current + delta);
+  data.water[today] = newVal;
+  save();
+  renderCounters();
+  if (delta > 0 && newVal === 8) {
+    showConfetti();
+    playSequence([523, 659, 784], 0.1, 0.1);
+  }
+}
+
+function changeBook(delta) {
+  if (isViewingPast()) return;
+  const current = data.books[today] || 0;
+  const newVal = Math.max(0, current + delta);
+  data.books[today] = newVal;
+  data.booksTotal = Math.max(0, (data.booksTotal || 0) + delta);
+  save();
+  renderCounters();
+  if (delta > 0) addPoints(Math.min(delta, 10));
+}
+
+function renderCounters() {
+  const targetDate = getTargetDate();
+  const waterEl = document.getElementById('waterCount');
+  const bookEl = document.getElementById('bookCount');
+  const cupEl = document.getElementById('cupSizeSelect');
+  const waterVolEl = document.getElementById('waterVolume');
+  const bookTotEl = document.getElementById('bookTotal');
+  const selfMsgEl = document.getElementById('selfMessage');
+
+  if (waterEl) {
+    const glasses = data.water[targetDate] || 0;
+    waterEl.textContent = toFa(glasses);
+    if (waterVolEl) {
+      const ml = glasses * (data.cupSize || 250);
+      const liters = (ml / 1000).toFixed(2);
+      waterVolEl.textContent = toFa(ml) + ' ml (' + toFa(liters) + ' لیتر)';
+    }
+  }
+  if (bookEl) bookEl.textContent = toFa(data.books[targetDate] || 0);
+  if (bookTotEl) bookTotEl.textContent = toFa(data.booksTotal || 0) + ' صفحه';
+  if (cupEl) cupEl.value = data.cupSize || 250;
+  if (selfMsgEl) selfMsgEl.value = data.selfMessage || '';
+}
+</script>
+
+<script>
+// ============ محاسبه استریک عادت ============
+function calculateStreak(habitIndex) {
+  let streak = 0;
+  for (let i = 0; i < 365; i++) {
+    const dateStr = getDateStr(i);
+    const day = data.history[dateStr];
+    if (day && day.habits && day.habits.indexOf(habitIndex) > -1) {
+      streak++;
+    } else if (i === 0) {
+      continue;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+// ============ دسته‌بندی ============
+function renderCategories() {
+  const cats = ['', 'ورزشی', 'تحصیلی', 'معنوی', 'سلامت', 'مهارت', 'خانواده', 'مالی'];
+  const container = document.getElementById('habitsCats');
+  if (!container) return;
+  container.innerHTML = '';
+  cats.forEach(function(c) {
+    const chip = document.createElement('div');
+    chip.className = 'cat-chip' + (activeCategory === c ? ' active' : '');
+    chip.textContent = c === '' ? 'همه' : c;
+    chip.onclick = function() { activeCategory = c; render(); };
+    container.appendChild(chip);
+  });
+}
+
+// ============ رندر لیست‌ها ============
+function renderList(type, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+  const targetDate = getTargetDate();
+
+  let items = data[type].map(function(item, i) { return { item: item, originalIndex: i }; });
+
+  // برای عادت‌ها: فیلتر بر اساس روز
+  if (type === 'habits') {
+    items = items.filter(function(f) { return isHabitForDay(f.item, targetDate); });
+    if (activeCategory) {
+      items = items.filter(function(f) { return f.item.cat === activeCategory; });
+    }
+  }
+
+  // مرتب‌سازی بر اساس اولویت
+  items.sort(function(a, b) {
+    const pa = a.item.priority || 999;
+    const pb = b.item.priority || 999;
+    return pa - pb;
+  });
+
+  if (items.length === 0) {
+    if (type === 'habits') {
+      container.innerHTML = '<div class="empty">امروز عادتی نداری 🌙</div>';
+    } else {
+      container.innerHTML = '<div class="empty">هنوز چیزی اضافه نکردی</div>';
+    }
+    return;
+  }
+
+  const hasTime = type !== 'avoids';
+  const readOnly = isViewingPast();
+  const dayNames = ['یک‌شنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه', 'شنبه'];
+
+  items.forEach(function(f) {
+    const item = f.item;
+    const i = f.originalIndex;
+    const done = data.history[targetDate] && data.history[targetDate][type] && data.history[targetDate][type].indexOf(i) > -1;
+    const div = document.createElement('div');
+    div.className = 'item' + (done ? ' done' : '');
+
+    let timeBadge = '';
+    if (hasTime && item.time) timeBadge = '<span class="time-badge">🕐 ' + item.time + '</span>';
+    let catBadge = '';
+    if (item.cat) catBadge = '<span class="cat-badge">' + item.cat + '</span>';
+    let priorityBadge = '';
+    if (item.priority && item.priority > 0) priorityBadge = '<span class="priority-badge">⚡ ' + item.priority + '</span>';
+    let daysBadge = '';
+    if (type === 'habits' && item.days && item.days.length > 0) {
+      const dayList = item.days.map(function(d) { return dayNames[d]; }).join('،');
+      daysBadge = '<span class="days-badge">📅 ' + dayList + '</span>';
+    }
+
+    let goalBadge = '';
+    let goalProgress = '';
+    if (type === 'habits' && item.goal && item.goal > 0) {
+      const streak = calculateStreak(i);
+      const goalPct = Math.min(100, Math.round((streak / item.goal) * 100));
+      const doneIcon = streak >= item.goal ? ' 🎉' : '';
+      goalBadge = '<span class="goal-badge">🎯 ' + toFa(streak) + '/' + toFa(item.goal) + doneIcon + '</span>';
+      goalProgress = '<div class="goal-progress"><div class="goal-fill" style="width:' + goalPct + '%"></div></div>';
+    }
+
+    let editBtn = '';
+    if (hasTime && !readOnly) editBtn = '<button class="edit-btn" onclick="startEdit(\'' + type + '\', ' + i + ')">✏️</button>';
+    let deleteBtn = '';
+    if (!readOnly) deleteBtn = '<button class="delete-btn" onclick="deleteItem(\'' + type + '\', ' + i + ')">حذف</button>';
+    const checkLabel = (item.priority && item.priority > 0) ? item.priority : '';
+
+    div.innerHTML = '<input type="checkbox" class="priority-check" ' + (done ? 'checked' : '') + ' onchange="toggleItem(\'' + type + '\', ' + i + ')" ' + (readOnly ? 'disabled' : '') + '>' +
+      (checkLabel ? '<span style="font-size:10px; color:var(--orange); font-weight:bold; min-width:14px;">' + checkLabel + '</span>' : '') +
+      '<span class="text">' + item.text + '</span>' +
+      timeBadge + catBadge + priorityBadge + daysBadge + goalBadge + editBtn + deleteBtn + goalProgress;
+
+    if (editing[type] === i && !readOnly) {
+      const panel = document.createElement('div');
+      panel.className = 'edit-panel';
+      let daysPickerHtml = '';
+      if (type === 'habits') {
+        daysPickerHtml = '<div class="days-picker">' +
+          '<div class="days-picker-label">📅 روزهای انجام (خالی = هر روز):</div>' +
+          [6,0,1,2,3,4,5].map(function(d) {
+            const isChecked = item.days && item.days.indexOf(d) > -1;
+            return '<label class="day-check' + (isChecked ? ' checked' : '') + '" data-day="' + d + '" onclick="event.preventDefault(); this.classList.toggle(\'checked\');"><input type="checkbox" value="' + d + '" ' + (isChecked ? 'checked' : '') + '>' + dayNames[d] + '</label>';
+          }).join('') +
+          '</div>';
+      }
+      panel.innerHTML = '<input type="text" id="editText_' + type + '_' + i + '" value="' + (item.text || '').replace(/"/g, '&quot;') + '">' +
+        (hasTime ? '<input type="time" id="editTime_' + type + '_' + i + '" value="' + (item.time || '') + '">' : '') +
+        (type === 'habits' ? '<select id="editCat_' + type + '_' + i + '">' +
+          '<option value="">بدون دسته</option>' +
+          ['ورزشی','تحصیلی','معنوی','سلامت','مهارت','خانواده','مالی'].map(function(c) {
+            return '<option value="' + c + '" ' + (item.cat === c ? 'selected' : '') + '>' + c + '</option>';
+          }).join('') +
+          '</select>' +
+          '<input type="number" id="editGoal_' + type + '_' + i + '" value="' + (item.goal || '') + '" placeholder="هدف (روز)" min="0" max="365">' : '') +
+        (hasTime ? '<input type="number" id="editPriority_' + type + '_' + i + '" value="' + (item.priority || '') + '" placeholder="اولویت" min="1" max="10">' : '') +
+        daysPickerHtml +
+        '<button class="save-btn" onclick="saveEdit(\'' + type + '\', ' + i + ')">ذخیره</button>' +
+        '<button class="cancel-btn" onclick="cancelEdit(\'' + type + '\')">انصراف</button>';
+      div.appendChild(panel);
+    }
+    container.appendChild(div);
+  });
+}
+
+function renderDreams() {
+  const types = ['today', 'week', 'month', 'year'];
+  types.forEach(function(t) {
+    const container = document.getElementById('dream' + t.charAt(0).toUpperCase() + t.slice(1) + 'List');
+    if (!container) return;
+    container.innerHTML = '';
+    if (data.dreams[t].length === 0) {
+      container.innerHTML = '<div class="dream-empty">هنوز چیزی اضافه نکردی</div>';
+      return;
+    }
+    data.dreams[t].forEach(function(dream, i) {
+      const div = document.createElement('div');
+      div.className = 'dream-item' + (dream.done ? ' done' : '');
+      let dateBadge = '';
+      if (dream.done && dream.doneDate) dateBadge = '<span class="done-date">✅ ' + dream.doneDate + '</span>';
+      div.innerHTML = '<input type="checkbox" ' + (dream.done ? 'checked' : '') + ' onchange="toggleDream(\'' + t + '\', ' + i + ')">' +
+        '<span class="text">' + dream.text + '</span>' +
+        dateBadge +
+        '<button class="delete-btn" onclick="deleteDream(\'' + t + '\', ' + i + ')">حذف</button>';
+      container.appendChild(div);
+    });
+  });
+}
+
+function updateTodayInfo() {
+  const el = document.getElementById('todayHabitsInfo');
+  if (!el) return;
+  const targetDate = getTargetDate();
+  const total = data.habits.filter(function(h) { return isHabitForDay(h, targetDate); }).length;
+  if (isViewingPast()) {
+    el.textContent = '📅 مشاهده گذشته — ' + toFa(total) + ' عادت این روز';
+  } else {
+    el.textContent = '✅ امروز ' + toFa(total) + ' عادت داری';
+  }
+}
+
+function render() {
+  try { renderCategories(); } catch(e) { console.log(e); }
+  try { renderList('habits', 'habitsList'); } catch(e) { console.log(e); }
+  try { renderList('tasks', 'tasksList'); } catch(e) { console.log(e); }
+  try { renderList('avoids', 'avoidList'); } catch(e) { console.log(e); }
+  try { renderDreams(); } catch(e) { console.log(e); }
+  try { updateAllStats(); } catch(e) { console.log(e); }
+  try { updateAddBoxes(); } catch(e) { console.log(e); }
+  try { updateTodayInfo(); } catch(e) { console.log(e); }
+}
+
+function updateAddBoxes() {
+  const readOnly = isViewingPast();
+  const boxes = ['habitsAddBox', 'tasksAddBox', 'avoidsAddBox', 'dreamTodayAdd', 'dreamWeekAdd', 'dreamMonthAdd', 'dreamYearAdd', 'rewardsAddBox', 'noteAddBox'];
+  boxes.forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = readOnly ? 'none' : 'flex';
+  });
+}
+
+// ============ آمار ============
 function calcPct(list, doneList) {
   const total = list.length;
   const done = doneList ? doneList.length : 0;
   const pct = total === 0 ? 0 : Math.round((done / total) * 100);
-  return { total, done, pct };
+  return { total: total, done: done, pct: pct };
 }
 
 function updateAllStats() {
-  const h = calcPct(data.habits, data.history[today] ? data.history[today].habits : []);
-  document.getElementById('habitPct').textContent = h.pct + '%';
-  document.getElementById('habitDone').textContent = h.done;
-  document.getElementById('habitTotal').textContent = h.total;
-  document.getElementById('habitBar').style.width = h.pct + '%';
+  const targetDate = getTargetDate();
+  const day = data.history[targetDate] || { habits: [], tasks: [], avoids: [] };
 
-  const t = calcPct(data.tasks, data.history[today] ? data.history[today].tasks : []);
-  document.getElementById('taskPct').textContent = t.pct + '%';
-  document.getElementById('taskDone').textContent = t.done;
-  document.getElementById('taskTotal').textContent = t.total;
-  document.getElementById('taskBar').style.width = t.pct + '%';
+  // عادت‌ها: فقط عادت‌های همون روز
+  const habitsForDay = data.habits.map(function(h, i) { return i; }).filter(function(i) { return isHabitForDay(data.habits[i], targetDate); });
+  const habitsDone = (day.habits || []).filter(function(i) { return habitsForDay.indexOf(i) > -1; });
+  const h = { total: habitsForDay.length, done: habitsDone.length, pct: habitsForDay.length === 0 ? 0 : Math.round((habitsDone.length / habitsForDay.length) * 100) };
 
-  const a = calcPct(data.avoids, data.history[today] ? data.history[today].avoids : []);
-  document.getElementById('avoidPct').textContent = a.pct + '%';
-  document.getElementById('avoidDone').textContent = a.done;
-  document.getElementById('avoidTotal').textContent = a.total;
-  document.getElementById('avoidBar').style.width = a.pct + '%';
+  const hEl = document.getElementById('habitPct');
+  if (hEl) {
+    hEl.textContent = h.pct + '%';
+    document.getElementById('habitDone').textContent = h.done;
+    document.getElementById('habitTotal').textContent = h.total;
+    document.getElementById('habitBar').style.width = h.pct + '%';
+  }
+
+  const t = calcPct(data.tasks, day.tasks || []);
+  const tEl = document.getElementById('taskPct');
+  if (tEl) {
+    tEl.textContent = t.pct + '%';
+    document.getElementById('taskDone').textContent = t.done;
+    document.getElementById('taskTotal').textContent = t.total;
+    document.getElementById('taskBar').style.width = t.pct + '%';
+  }
+
+  const a = calcPct(data.avoids, day.avoids || []);
+  const aEl = document.getElementById('avoidPct');
+  if (aEl) {
+    aEl.textContent = a.pct + '%';
+    document.getElementById('avoidDone').textContent = a.done;
+    document.getElementById('avoidTotal').textContent = a.total;
+    document.getElementById('avoidBar').style.width = a.pct + '%';
+  }
 
   const totalAll = h.total + t.total + a.total;
   const doneAll = h.done + t.done + a.done;
   const pctAll = totalAll === 0 ? 0 : Math.round((doneAll / totalAll) * 100);
 
-  document.getElementById('overallPct').textContent = pctAll + '%';
-  document.getElementById('overallDone').textContent = doneAll;
-  document.getElementById('overallTotal').textContent = totalAll;
-  document.getElementById('overallBar').style.width = pctAll + '%';
+  const oEl = document.getElementById('overallPct');
+  if (oEl) {
+    oEl.textContent = pctAll + '%';
+    document.getElementById('overallDone').textContent = doneAll;
+    document.getElementById('overallTotal').textContent = totalAll;
+    document.getElementById('overallBar').style.width = pctAll + '%';
+  }
+
+  updateLevelUI();
 }
 
 function getDayPct(dateStr) {
   const day = data.history[dateStr];
   if (!day) return 0;
-  const totalAll = data.habits.length + data.tasks.length + data.avoids.length;
+  const habitsForDay = data.habits.filter(function(h) { return isHabitForDay(h, dateStr); }).length;
+  const totalAll = habitsForDay + data.tasks.length + data.avoids.length;
   if (totalAll === 0) return 0;
   const doneAll = (day.habits ? day.habits.length : 0) + (day.tasks ? day.tasks.length : 0) + (day.avoids ? day.avoids.length : 0);
   return Math.round((doneAll / totalAll) * 100);
@@ -288,74 +3058,7 @@ function getDateStr(daysAgo) {
   return d.toISOString().split('T')[0];
 }
 
-function renderHistory() {
-  const list = document.getElementById('historyList');
-  list.innerHTML = '';
-
-  const now = new Date();
-  const dayOfWeek = now.getDay();
-  const daysFromSaturday = (dayOfWeek + 1) % 7;
-
-  let sum = 0;
-  let count = 0;
-  let bestPct = 0;
-  let bestDayName = '—';
-  const days = [];
-
-  for (let i = 0; i < 7; i++) {
-    const diff = i - daysFromSaturday;
-    const d = new Date();
-    d.setDate(d.getDate() + diff);
-    const dateStr = d.toISOString().split('T')[0];
-    const dayName = d.toLocaleDateString('fa-IR', { weekday: 'long' });
-    const pct = diff <= 0 ? getDayPct(dateStr) : 0;
-    days.push({ dateStr, dayName, pct, isFuture: diff > 0, isToday: diff === 0 });
-
-    if (diff < 0) {
-      sum += pct;
-      count++;
-      if (pct > bestPct) { bestPct = pct; bestDayName = dayName; }
-    }
-  }
-
-  days.forEach(d => {
-    const row = document.createElement('div');
-    row.className = 'day-row';
-
-    let color;
-    if (d.isFuture) color = '#1e293b';
-    else if (d.pct >= 80) color = '#22c55e';
-    else if (d.pct >= 50) color = '#f59e0b';
-    else if (d.pct > 0) color = '#ef4444';
-    else color = '#475569';
-
-    let label = d.dayName;
-    if (d.isToday) label += ' (امروز)';
-
-    const pctDisplay = d.isFuture ? '—' : d.pct + '%';
-
-    row.innerHTML = `
-      <div class="day-name">${label}</div>
-      <div class="day-bar-bg"><div class="day-bar-fill" style="width:${d.pct}%; background:${color};"></div></div>
-      <div class="day-pct">${pctDisplay}</div>
-    `;
-    list.appendChild(row);
-  });
-
-  const avg = count === 0 ? 0 : Math.round(sum / count);
-  document.getElementById('avgPct').textContent = avg + '%';
-  document.getElementById('bestDay').textContent = bestDayName;
-
-  let streak = 0;
-  for (let i = 1; i <= 30; i++) {
-    const dateStr = getDateStr(i);
-    const pct = getDayPct(dateStr);
-    if (pct >= 50) streak++;
-    else break;
-  }
-  document.getElementById('streak').textContent = streak;
-}
-
+// ============ توابع آیتم‌ها ============
 function ensureToday() {
   if (!data.history[today]) data.history[today] = { habits: [], tasks: [], avoids: [] };
   if (!data.history[today].habits) data.history[today].habits = [];
@@ -364,39 +3067,84 @@ function ensureToday() {
 }
 
 function toggleItem(type, i) {
+  if (isViewingPast()) { alert('در حالت مشاهده گذشته نمی‌تونی تغییر بدی'); return; }
   ensureToday();
   const arr = data.history[today][type];
   const idx = arr.indexOf(i);
-  if (idx > -1) arr.splice(idx, 1); else arr.push(i);
-  save(); render();
-}
-
-function addItem(type, inputId, timeId) {
-  const v = document.getElementById(inputId).value.trim();
-  if (!v) return;
-  let time = '';
-  if (timeId) {
-    time = document.getElementById(timeId).value;
+  if (idx > -1) {
+    arr.splice(idx, 1);
+  } else {
+    arr.push(i);
+    playTick();
+    addPoints(2);
   }
-  data[type].push({ text: v, time: time });
-  document.getElementById(inputId).value = '';
-  if (timeId) document.getElementById(timeId).value = '';
   save(); render();
 }
 
-function addHabit() { addItem('habits', 'habitInput', 'habitTime'); }
-function addTask() { addItem('tasks', 'taskInput', 'taskTime'); }
-function addAvoid() { addItem('avoids', 'avoidInput', null); }
+function addHabit() {
+  if (isViewingPast()) return;
+  const input = document.getElementById('habitInput');
+  const v = input.value.trim();
+  if (!v) { alert('نام عادت رو وارد کن'); return; }
+  const time = document.getElementById('habitTime').value;
+  const cat = document.getElementById('habitCat').value;
+  const priority = parseInt(document.getElementById('habitPriority').value) || 0;
+  const goal = parseInt(document.getElementById('habitGoal').value) || 0;
+
+  const days = [];
+  document.querySelectorAll('#habitDaysPicker .day-check').forEach(function(el) {
+    if (el.classList.contains('checked')) {
+      days.push(parseInt(el.dataset.day));
+    }
+  });
+
+  data.habits.push({ text: v, time: time, cat: cat, priority: priority, days: days, goal: goal });
+  input.value = '';
+  document.getElementById('habitTime').value = '';
+  document.getElementById('habitCat').value = '';
+  document.getElementById('habitPriority').value = '';
+  document.getElementById('habitGoal').value = '';
+  document.querySelectorAll('#habitDaysPicker .day-check').forEach(function(el) { el.classList.remove('checked'); });
+  save(); render();
+  console.log('✅ عادت اضافه شد:', v);
+}
+
+function addTask() {
+  if (isViewingPast()) return;
+  const input = document.getElementById('taskInput');
+  const v = input.value.trim();
+  if (!v) { alert('نام کار رو وارد کن'); return; }
+  const time = document.getElementById('taskTime').value;
+  const priority = parseInt(document.getElementById('taskPriority').value) || 0;
+  data.tasks.push({ text: v, time: time, cat: '', priority: priority });
+  input.value = '';
+  document.getElementById('taskTime').value = '';
+  document.getElementById('taskPriority').value = '';
+  save(); render();
+  console.log('✅ کار اضافه شد:', v);
+}
+
+function addAvoid() {
+  if (isViewingPast()) return;
+  const input = document.getElementById('avoidInput');
+  const v = input.value.trim();
+  if (!v) { alert('نام پرهیز رو وارد کن'); return; }
+  data.avoids.push({ text: v, time: '', cat: '' });
+  input.value = '';
+  save(); render();
+  console.log('✅ پرهیز اضافه شد:', v);
+}
 
 function deleteItem(type, i) {
+  if (isViewingPast()) { alert('در حالت مشاهده گذشته نمی‌تونی تغییر بدی'); return; }
   data[type].splice(i, 1);
   if (data.history[today]) data.history[today][type] = [];
   editing[type] = -1;
   save(); render();
 }
 
-// === ویرایش ===
 function startEdit(type, i) {
+  if (isViewingPast()) return;
   editing[type] = i;
   render();
 }
@@ -407,25 +3155,321 @@ function cancelEdit(type) {
 }
 
 function saveEdit(type, i) {
-  const textInput = document.getElementById(`editText_${type}_${i}`);
+  const textInput = document.getElementById('editText_' + type + '_' + i);
   const newText = textInput.value.trim();
-  if (!newText) {
-    alert('متن نمی‌تونه خالی باشه');
-    return;
-  }
+  if (!newText) { alert('متن نمی‌تونه خالی باشه'); return; }
   data[type][i].text = newText;
 
   if (type !== 'avoids') {
-    const timeInput = document.getElementById(`editTime_${type}_${i}`);
-    data[type][i].time = timeInput.value;
+    const timeInput = document.getElementById('editTime_' + type + '_' + i);
+    if (timeInput) data[type][i].time = timeInput.value;
   }
-
+  if (type === 'habits') {
+    const catInput = document.getElementById('editCat_' + type + '_' + i);
+    if (catInput) data[type][i].cat = catInput.value;
+    const goalInput = document.getElementById('editGoal_' + type + '_' + i);
+    if (goalInput) data[type][i].goal = parseInt(goalInput.value) || 0;
+    const panel = textInput.closest('.edit-panel');
+    const days = [];
+    if (panel) {
+      panel.querySelectorAll('.day-check').forEach(function(el) {
+        if (el.classList.contains('checked')) {
+          days.push(parseInt(el.dataset.day));
+        }
+      });
+    }
+    data[type][i].days = days;
+  }
+  if (type !== 'avoids') {
+    const prioInput = document.getElementById('editPriority_' + type + '_' + i);
+    if (prioInput) data[type][i].priority = parseInt(prioInput.value) || 0;
+  }
   editing[type] = -1;
   save(); render();
 }
 
-render();
+// ============ آرزوها ============
+function addDream(type) {
+  if (isViewingPast()) return;
+  const inputId = 'dream' + type.charAt(0).toUpperCase() + type.slice(1) + 'Input';
+  const input = document.getElementById(inputId);
+  const v = input.value.trim();
+  if (!v) return;
+  data.dreams[type].push({ text: v, done: false, doneDate: null });
+  input.value = '';
+  save(); renderDreams();
+}
+
+function toggleDream(type, i) {
+  if (isViewingPast()) return;
+  const dream = data.dreams[type][i];
+  dream.done = !dream.done;
+  if (dream.done) {
+    dream.doneDate = new Date().toLocaleDateString('fa-IR', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    addPoints(10);
+    showConfetti();
+  } else {
+    dream.doneDate = null;
+  }
+  save(); renderDreams();
+}
+
+function deleteDream(type, i) {
+  if (isViewingPast()) return;
+  data.dreams[type].splice(i, 1);
+  save(); renderDreams();
+}
+
+// ============ جایزه ============
+function openReward() {
+  if (data.rewardsList.length === 0) { alert('❌ اول از تب جایزه‌ها، جایزه اضافه کن!'); return; }
+  const pendingRewards = data.rewardsList.filter(function(r) { return !r.done; });
+  if (pendingRewards.length === 0) { alert('✅ همه جایزه‌هات رو گرفتی!'); return; }
+  const todayPct = getDayPct(today);
+  if (todayPct < 50) { alert('❌ برای جایزه، حداقل ۵۰٪ پیشرفت لازمه!'); return; }
+  if (data.lastRewardDate === today) { alert('⚠️ امروز جایزه گرفتی!'); return; }
+  const reward = pendingRewards[Math.floor(Math.random() * pendingRewards.length)];
+  data.lastRewardDate = today;
+  save();
+  showConfetti();
+  document.getElementById('rewardResult').innerHTML = '<div class="reward-result">🎉 جایزه تو: ' + reward.name + '</div>';
+  addPoints(20);
+}
+
+function addReward() {
+  const nameInput = document.getElementById('rewardNameInput');
+  const yInput = document.getElementById('rewardYearInput');
+  const mInput = document.getElementById('rewardMonthInput');
+  const dInput = document.getElementById('rewardDayInput');
+  const name = nameInput.value.trim();
+  if (!name) { alert('نام جایزه رو وارد کن'); return; }
+  let dateJalali = '';
+  const y = parseInt(yInput.value), m = parseInt(mInput.value), d = parseInt(dInput.value);
+  if (y && m && d && y >= 1300 && y <= 1500 && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
+    dateJalali = d + ' ' + jalaliMonths[m - 1] + ' ' + y;
+  }
+  data.rewardsList.push({ id: Date.now(), name: name, date: dateJalali, done: false });
+  nameInput.value = '';
+  yInput.value = '';
+  mInput.value = '';
+  dInput.value = '';
+  save();
+  renderRewardsDisplay();
+}
+
+function deleteReward(id) {
+  data.rewardsList = data.rewardsList.filter(function(r) { return r.id !== id; });
+  save();
+  renderRewardsDisplay();
+}
+
+function toggleRewardDone(id) {
+  const r = data.rewardsList.filter(function(x) { return x.id === id; })[0];
+  if (r) {
+    r.done = !r.done;
+    if (r.done) {
+      r.doneDate = new Date().toLocaleDateString('fa-IR');
+      addPoints(15);
+      showConfetti();
+    }
+    save();
+    renderRewardsDisplay();
+  }
+}
+
+function renderRewardsDisplay() {
+  const container = document.getElementById('rewardsListDisplay');
+  if (!container) return;
+  container.innerHTML = '';
+  if (data.rewardsList.length === 0) {
+    container.innerHTML = '<div class="empty">هنوز جایزه‌ای اضافه نکردی</div>';
+    return;
+  }
+  data.rewardsList.forEach(function(r) {
+    const div = document.createElement('div');
+    div.className = 'reward-item' + (r.done ? ' done' : '');
+    const dateDisplay = r.date ? '<span class="reward-date">📅 ' + r.date + '</span>' : '';
+    div.innerHTML = '<input type="checkbox" ' + (r.done ? 'checked' : '') + ' onchange="toggleRewardDone(' + r.id + ')">' +
+      '<span class="reward-name">🎁 ' + r.name + '</span>' +
+      dateDisplay +
+      '<button class="delete-btn" onclick="deleteReward(' + r.id + ')">حذف</button>';
+    container.appendChild(div);
+  });
+}
+
+// ============ گزارش تصویری ============
+function generateReport() {
+  const canvas = document.getElementById('reportCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, '#1e1b4b');
+  grad.addColorStop(1, '#0f172a');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+  ctx.strokeStyle = '#60a5fa';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(10, 10, w - 20, h - 20);
+  ctx.fillStyle = '#60a5fa';
+  ctx.font = 'bold 34px Tahoma';
+  ctx.textAlign = 'center';
+  ctx.fillText('به نام پروردگار', w / 2, 70);
+  ctx.fillStyle = '#a78bfa';
+  ctx.font = 'bold 20px Tahoma';
+  ctx.fillText('FATEH', w / 2, 105);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '16px Tahoma';
+  ctx.fillText(new Date().toLocaleDateString('fa-IR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }), w / 2, 145);
+
+  const todayPct = getDayPct(today);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '18px Tahoma';
+  ctx.fillText('پیشرفت امروز', w / 2, 215);
+  ctx.fillStyle = '#22c55e';
+  ctx.font = 'bold 80px Tahoma';
+  ctx.fillText(todayPct + '%', w / 2, 305);
+
+  const habitsForToday = data.habits.filter(function(h) { return isHabitForDay(h, today); }).length;
+  const habitsDone = data.history[today] && data.history[today].habits ? data.history[today].habits.length : 0;
+  const habitsPct = habitsForToday > 0 ? Math.round((habitsDone / habitsForToday) * 100) : 0;
+  const tasksPct = data.tasks.length > 0 ? Math.round(((data.history[today] && data.history[today].tasks ? data.history[today].tasks.length : 0) / data.tasks.length) * 100) : 0;
+  const avoidsPct = data.avoids.length > 0 ? Math.round(((data.history[today] && data.history[today].avoids ? data.history[today].avoids.length : 0) / data.avoids.length) * 100) : 0;
+
+  const boxY = 410, boxH = 110, boxGap = 15;
+  const boxW = (w - 100 - boxGap * 2) / 3;
+  ctx.fillStyle = '#1e293b';
+  ctx.fillRect(50, boxY, boxW, boxH);
+  ctx.fillStyle = '#22c55e';
+  ctx.font = 'bold 36px Tahoma';
+  ctx.fillText(habitsPct + '%', 50 + boxW / 2, boxY + 55);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '14px Tahoma';
+  ctx.fillText('عادت‌ها', 50 + boxW / 2, boxY + 90);
+
+  ctx.fillStyle = '#1e293b';
+  ctx.fillRect(50 + boxW + boxGap, boxY, boxW, boxH);
+  ctx.fillStyle = '#3b82f6';
+  ctx.font = 'bold 36px Tahoma';
+  ctx.fillText(tasksPct + '%', 50 + boxW + boxGap + boxW / 2, boxY + 55);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '14px Tahoma';
+  ctx.fillText('کارها', 50 + boxW + boxGap + boxW / 2, boxY + 90);
+
+  ctx.fillStyle = '#1e293b';
+  ctx.fillRect(50 + (boxW + boxGap) * 2, boxY, boxW, boxH);
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = 'bold 36px Tahoma';
+  ctx.fillText(avoidsPct + '%', 50 + (boxW + boxGap) * 2 + boxW / 2, boxY + 55);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '14px Tahoma';
+  ctx.fillText('پرهیزها', 50 + (boxW + boxGap) * 2 + boxW / 2, boxY + 90);
+}
+
+function downloadReport() {
+  const canvas = document.getElementById('reportCanvas');
+  if (!canvas) return;
+  const link = document.createElement('a');
+  link.download = 'report-' + today + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// ============ PWA ============
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js')
+      .then(function(reg) { console.log('✅ SW ثبت شد'); })
+      .catch(function(err) { console.log('⚠️ خطا در SW:', err); });
+  });
+}
+
+// ============ شروع اپ ============
+function initApp() {
+  try {
+    document.getElementById('todayDate').textContent = new Date().toLocaleDateString('fa-IR', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+  } catch(e) { console.log(e); }
+
+  try {
+    const now = new Date();
+    const hijri = toHijri(now.getFullYear(), now.getMonth() + 1, now.getDate());
+    document.getElementById('hijriDate').textContent = '🌙 ' + toFa(hijri[2]) + ' ' + hijriMonths[hijri[1] - 1] + ' ' + toFa(hijri[0]) + ' ق';
+  } catch(e) { console.log(e); }
+
+  try {
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.textContent = 'حالت شب';
+    }
+    if (data.colorTheme) {
+      document.body.classList.add(data.colorTheme);
+      const el = document.getElementById('colorThemeSelect');
+      if (el) el.value = data.colorTheme;
+    }
+    if (data.font) {
+      document.documentElement.style.setProperty('--font', data.font);
+      const el = document.getElementById('fontSelect');
+      if (el) el.value = data.font;
+    }
+    if (data.userName) {
+      const el = document.getElementById('userNameInput');
+      if (el) el.value = data.userName;
+    }
+    const soundEl = document.getElementById('soundSelect');
+    if (soundEl) soundEl.value = data.soundType;
+    const vibEl = document.getElementById('vibrateSelect');
+    if (vibEl) vibEl.value = data.vibrateMs;
+    const sleepTimeEl = document.getElementById('sleepTimeInput');
+    if (sleepTimeEl) sleepTimeEl.value = data.sleepTime;
+    const sleepMsgEl = document.getElementById('sleepMessageInput');
+    if (sleepMsgEl) sleepMsgEl.value = data.sleepMessage;
+    const cupEl = document.getElementById('cupSizeSelect');
+    if (cupEl) cupEl.value = data.cupSize || 250;
+  } catch(e) { console.log(e); }
+
+  try { updateUserNameDisplay(); } catch(e) { console.log(e); }
+  try { checkDailyReset(); } catch(e) { console.log(e); }
+  try { checkPassword(); } catch(e) { console.log(e); }
+  try { applyBackground(); } catch(e) { console.log(e); }
+  try { updatePasswordUI(); } catch(e) { console.log(e); }
+  try { updateLevelUI(); } catch(e) { console.log(e); }
+  try { updateSleepToggleBtn(); } catch(e) { console.log(e); }
+  try { updateMusicBtn(); } catch(e) { console.log(e); }
+  try { updateAutoBackupBtn(); } catch(e) { console.log(e); }
+  try { renderMotivation(); } catch(e) { console.log(e); }
+
+  try { render(); } catch(e) { console.log('خطا در render:', e); }
+  try { renderNoteTags(); } catch(e) { console.log(e); }
+  try { searchNotes(); } catch(e) { console.log(e); }
+  try { renderRewardsDisplay(); } catch(e) { console.log(e); }
+  try { renderMoods(); } catch(e) { console.log(e); }
+  try { renderCounters(); } catch(e) { console.log(e); }
+
+  const noteEl = document.getElementById('noteArea');
+  if (noteEl) noteEl.value = data.notes[today] || '';
+
+  try {
+    if (data.currentChallenge && data.lastChallengeDate === today) {
+      const el = document.getElementById('challengeText');
+      if (el) el.textContent = data.currentChallenge;
+    } else {
+      getNewChallenge();
+    }
+  } catch(e) { console.log(e); }
+
+  console.log('✅ اپ آماده شد');
+}
+
+try {
+  initApp();
+} catch(e) {
+  console.error('❌ خطا:', e);
+}
 </script>
 
 </body>
-</html>
+                     </html>
