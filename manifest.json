@@ -1,0 +1,36 @@
+{
+  "name": "اپ عادت‌های من — FATEH",
+  "short_name": "عادت‌ها",
+  "description": "اپ پیگیری عادت‌های روزانه، کارها، پرهیزها و آرزوها",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": ["productivity", "lifestyle"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjNmQyOGQ5Ii8+PHBhdGggZD0iTTUwIDYwIEw1MCAxNDAgTDkwIDE0MCBMOTAgNjAgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45Ii8+PHBhdGggZD0iTTEwMCA2MCBMMTAwIDE0MCBMMTQ1IDE0MCBMMTQ1IDYwIFoiIGZpbGw9IiNmYmJmMjQiIG9wYWNpdHk9IjAuOSIvPjxjaXJjbGUgY3g9Ijk1IiBjeT0iNTAiIHI9IjEyIiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzZkMjhkOSIvPjxwYXRoIGQ9Ik0xMzAgMTYwIEwxMzAgMzcwIEwyNDAgMzcwIEwyNDAgMTYwIFoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOSIvPjxwYXRoIGQ9Ik0yNjAgMTYwIEwyNjAgMzcwIEwzODAgMzcwIEwzODAgMTYwIFoiIGZpbGw9IiNmYmJmMjQiIG9wYWNpdHk9IjAuOSIvPjxjaXJjbGUgY3g9IjI1NSIgY3k9IjEzMCIgcj0iMzAiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "عادت‌های امروز",
+      "short_name": "عادت‌ها",
+      "url": "index.html#home",
+      "icons": []
+    }
+  ]
+}
